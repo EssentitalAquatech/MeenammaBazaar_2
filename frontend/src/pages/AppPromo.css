@@ -1,0 +1,62 @@
+/* MAIN WRAPPER */
+.app-promo-wrapper {
+  padding: 50px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, hsl(215 70% 22%) 0%, hsl(205 85% 38%) 50%, hsl(195 90% 55%) 100%);
+    /* background: linear-gradient(
+    180deg,
+    hsl(195 90% 55%) 0%,
+    hsl(205 85% 38%) 100%
+  ); */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* GLOW EFFECTS */
+.glow-circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.circle-1 {
+  top: -80px;
+  right: -80px;
+  background: #0d6efd;
+}
+
+.circle-2 {
+  bottom: -80px;
+  left: -80px;
+  background: #6610f2;
+}
+
+/* BADGE */
+.badge-custom {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+}
+
+/* IMAGE */
+.app-image {
+  max-width: 320px;
+  border-radius: 20px;
+  animation: float 3s ease-in-out infinite;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* FLOAT ANIMATION */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}

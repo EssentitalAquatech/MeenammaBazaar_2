@@ -1,0 +1,160 @@
+{
+
+    
+  "announcement": {
+    "delivery": "Free delivery on orders above ₹999",
+    "genuine": "100% genuine products from Essential Aquatech",
+    "helpline": "Aqua expert helpline: 1800-123-FISH",
+    "cod": "COD available across India"
+  },
+
+
+  "nav": {
+    "all_categories": "All Categories",
+    "pond_probiotics": "Pond Probiotics",
+    "fish_feed": "Fish Feed",
+    "water_testing": "Water Testing",
+    "medicines": "Medicines"
+  },
+
+  "category": {
+    "shop_by": "Shop by",
+    "category": "Category",
+    "subtitle": "Everything your pond needs — in one place",
+    "view_all": "View All",
+    "items": [
+      "Preventive Solutions",
+      "Disease Treatment",
+      "Water Quality Management",
+      "Oxygen & Emergency Care",
+      "Pond Preparation & Conditioning",
+      "Growth & Feed Supplements",
+      "Probiotics",
+      "Sludge & Toxic Gas Control",
+      "Water Treatment & Sanitizers",
+      "Plankton & Natural Feed Boosters",
+      "Complete Pond Health Kit",
+      "Water Recovery & Stability Kit",
+      "Disease Control & Recovery Kit",
+      "Growth & Performance Booster Kit"
+    ]
+  },
+  
+  "dod": {
+    "title": "Deals of",
+    "highlight": "the Day",
+    "subtitle": "Hand-picked savings for the next 24 hours only",
+    "view_all": "View All →",
+    "read_more": "Read More",
+    "read_less": "Read Less",
+    "size": "Size",
+    "price": "Price",
+    "add": "🛒 Add",
+    "added": "Added ✔",
+    "off": "OFF",
+
+    "eazy_chun": "Maintains pH balance | Promotes plankton growth | Improves oxygen | Boosts immunity",
+    "do_oxy": "Solves oxygen deficiency | Improves survival rate",
+    "aqueamina": "Improves pond health | Boosts growth & immunity | Enhances FCR",
+    "bottom_seaf": "Removes sludge & toxic gases | Improves water quality | Boosts bacteria"
+  
+},
+
+  "footer": {
+    "delivery": {
+      "title": "Pan-India Delivery",
+      "desc": "Free above ₹999"
+    },
+    "genuine": {
+      "title": "100% Genuine",
+      "desc": "From Essential Aquatech"
+    },
+    "support": {
+      "title": "Aqua Expert Support",
+      "desc": "Mon–Sat, 8am–8pm"
+    },
+    "quality": {
+      "title": "Lab-Tested Quality",
+      "desc": "ISO certified"
+    }
+  },
+  
+  "trending": {
+    "title": "Trending in",
+    "highlight": "Aquaculture",
+    "subtitle": "What fish farmers across India are buying this week",
+    "view_all": "View All →",
+    "read_more": "Read More",
+    "read_less": "Read Less",
+    "size": "Size",
+    "price": "Price",
+    "add": "🛒 Add",
+    "added": "Added ✔",
+
+    "aqueamina": "Improves pond health | Boosts growth & immunity | Enhances FCR",
+    "bottom_seaf": "Removes sludge & toxic gases | Improves water quality | Boosts bacteria"
+  },
+  
+  "app": {
+    "badge": "Meenamma WhatsApp Chat Bot",
+    "title1": "Manage your pond from your",
+    "highlight": "pocket",
+    "desc": "Grow smarter with Meenamma Chat Bot – your all-in-one solution for fish farming, pond care, and aquaculture insights. Ask anything, get instant answers",
+    "point1": "Communicate in any language",
+    "point2": "Receive accurate answers and best solutions",
+    "point3": "Available 24×7 anytime, anywhere",
+    "button": "Click & Chat Instantly"
+  },
+  
+  "about": {
+    "title": "About Meenamma",
+    "highlight": "Bazar",
+    "subtitle1": "Minima Bazar is powered by",
+    "brand": "Essential Aquatech",
+    "subtitle2": "Focused on improving fish farming outcomes for inland aquaculture across India.",
+
+    "card1_title": "Built for Fish Farmers",
+    "card1_desc": "Practical solutions for everyday pond problems.",
+
+    "card2_title": "Scientifically Backed",
+    "card2_desc": "Products developed by aquaculture experts.",
+
+    "card3_title": "Farmer Community",
+    "card3_desc": "Trusted by fish farmers across India.",
+
+    "card4_title": "Quality You Can Trust",
+    "card4_desc": "Transparent ingredients, real results.",
+
+    "cta_title": "Not Sure What to Buy?",
+    "cta_desc": "Use our WhatsApp chatbot. Describe your pond problem and we will recommend the right medicine and feed within seconds. Recommendation links redirect to product page for one-tap purchase."
+  },
+  "footer1": {
+  "brand": "Meenamma Bazaar",
+  "desc": "Trusted online store for fish feed, medicines and farming essentials with fast delivery service.",
+
+  "navigation": "Navigation",
+  "product": "Product",
+  "legal": "Legal",
+
+  "home": "Home",
+  "login": "Login",
+  "cart": "Cart",
+  "blog": "Blog",
+
+  "shop": "Shop",
+  "medicines": "Medicines",
+  "fish_feed": "Fish Feed",
+  "water_testing": "Water Testing",
+  "pond_probiotics": "Pond Probiotics",
+
+  "privacy": "Privacy Policy",
+  "return": "Return Policy",
+  "admin": "Admin Dashboard",
+
+  "bottom": "©2026 Meenamma Bazaar — Powered by Essential Aquatech."
+}
+
+
+
+  
+}

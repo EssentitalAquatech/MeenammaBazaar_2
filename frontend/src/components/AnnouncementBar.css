@@ -1,0 +1,108 @@
+/* AnnouncementBar.css */
+
+.announcement-space {
+  height: 42px;
+}
+
+/* Fixed Top Bar */
+.announcement-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+
+  background: #062b44;
+  color: #ffffff;
+  overflow: hidden;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 0;
+  min-width: max-content;
+  animation: scrollBar 22s linear infinite;
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.announcement-icon {
+  width: 16px;
+  height: 16px;
+  color: #00d4ff;
+  flex-shrink: 0;
+}
+
+.announcement-bar:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes scrollBar {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .announcement-space {
+    height: 38px;
+  }
+
+  .announcement-bar {
+    font-size: 13px;
+  }
+
+  .marquee-content {
+    gap: 35px;
+    padding: 8px 0;
+    animation-duration: 18s;
+  }
+
+  .announcement-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .announcement-space {
+    height: 34px;
+  }
+
+  .announcement-bar {
+    font-size: 12px;
+  }
+
+  .marquee-content {
+    gap: 25px;
+    padding: 7px 0;
+    animation-duration: 15s;
+  }
+
+  .announcement-icon {
+    width: 13px;
+    height: 13px;
+  }
+}

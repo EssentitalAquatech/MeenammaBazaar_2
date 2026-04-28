@@ -1,0 +1,208 @@
+/* ============================= */
+/* UNIQUE SHOP PAGE CSS (UPDATED CLASS NAMES) */
+/* ============================= */
+
+.product-page {
+  background-color: #fff;
+  background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 18px 18px;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+/* TITLE */
+.main-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 40px;
+}
+
+.main-title span {
+  color: #f39c12;
+}
+
+.sub-text {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* TOP BAR */
+.top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* SEARCH BOX */
+/* SEARCH BOX (FEED ONLY) */
+.feed-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.feed-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+/* FILTER (NOT USED IN JSX BUT KEPT) */
+.filter-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btns button {
+  padding: 7px 14px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filter-btns button:hover {
+  background: #ddd;
+}
+
+/* CARD */
+.product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* DESC */
+.desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* READ MORE BUTTON */
+.read-btn {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.read-btn:hover {
+  text-decoration: underline;
+  color: #0284c7;
+}
+
+/* CATEGORY */
+.category-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ffe312;
+  color: black;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* PRICE */
+.price {
+  font-weight: 600;
+}
+
+/* CART BUTTON */
+.cart-btn {
+  background: #ffe312;
+  color: black;
+  border: none;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.cart-btn:hover {
+  background: #dfc711;
+}
+
+/* CART BOX */
+.cart-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.cart-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ROW GAP */
+.product-page .row {
+  margin-bottom: 55px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .product-card img {
+    height: 180px;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+}

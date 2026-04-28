@@ -1,0 +1,265 @@
+/* ========================= */
+/* NAVBAR2 BASE */
+/* ========================= */
+
+.navbar2 {
+  position: fixed;
+  top: 112px;
+  left: 0;
+  width: 100%;
+  z-index: 9996;
+  background: #ffffff !important;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  transition: none !important;
+}
+
+/* scroll hone par bhi white hi rahe */
+.navbar2.scrolled,
+.navbar2:hover,
+.navbar2:focus {
+  background: #ffffff !important;
+}
+
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
+
+.navbar2-container {
+  max-width: 1400px;
+  margin: auto;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 20px;
+}
+
+/* ========================= */
+/* LINKS */
+/* ========================= */
+
+.navbar2-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.navbar2-links::-webkit-scrollbar {
+  display: none;
+}
+
+.navbar2-link {
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: 0.3s;
+}
+
+.navbar2-link:hover {
+  color: #0ea5e9;
+}
+
+/* ========================= */
+/* MOBILE MENU BUTTON HIDE */
+/* ========================= */
+
+.navbar2-menu-btn {
+  display: none;
+}
+
+/* ========================= */
+/* MOBILE MENU REMOVE */
+/* ========================= */
+
+.navbar2-mobile {
+  display: none;
+}
+
+/* ========================= */
+/* LAPTOP */
+/* ========================= */
+
+@media (max-width: 1200px) {
+  .navbar2-links {
+    gap: 20px;
+  }
+
+  .navbar2-link {
+    font-size: 13px;
+  }
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .navbar2 {
+    top: 112px;
+  }
+
+  .navbar2-container {
+    height: 50px;
+    padding: 0 14px;
+  }
+
+  .navbar2-links {
+    gap: 16px;
+  }
+
+  .navbar2-link {
+    font-size: 12px;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .navbar2 {
+    top: 102px;
+  }
+
+  .navbar2-container {
+    height: 46px;
+    padding: 0 10px;
+  }
+
+  .navbar2-links {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .navbar2-link {
+    font-size: 11px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .navbar2 {
+    top: 88px;
+  }
+
+  .navbar2-container {
+    height: 42px;
+    padding: 0 8px;
+  }
+
+  .navbar2-links {
+    gap: 12px;
+  }
+
+  .navbar2-link {
+    font-size: 10px;
+  }
+}
+
+/* ========================= */
+/* EXTRA SMALL */
+/* ========================= */
+
+@media (max-width: 360px) {
+  .navbar2-container {
+    height: 40px;
+    padding: 0 6px;
+  }
+
+  .navbar2-links {
+    gap: 10px;
+  }
+
+  .navbar2-link {
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ACTIVE LINK STYLE */
+.navbar2-link.active {
+  color: #0ea5e9;
+  font-weight: 700;
+  border-bottom: 2px solid #0ea5e9;
+  padding-bottom: 4px;
+}
+
+/* MOBILE ACTIVE */
+.navbar2-mobile-link.active {
+  color: #0ea5e9;
+  font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* LANGUAGE DROPDOWN */
+/* ========================= */
+
+.navbar2-lang {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.lang-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.lang-select:hover {
+  border-color: #0ea5e9;
+}

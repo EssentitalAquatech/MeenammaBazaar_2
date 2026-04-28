@@ -1,0 +1,260 @@
+/* ============================= */
+/* UNIQUE SHOP PAGE CSS */
+/* ============================= */
+
+.shop-product-page {
+  background-color: #fff;
+  background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 18px 18px;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+/* TITLE */
+.shop-main-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 40px;
+}
+
+.shop-main-title span {
+  color: #f39c12;
+}
+
+.shop-sub-text {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* TOP BAR */
+.shop-top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* SEARCH BOX */
+.shop-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.shop-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* FILTER */
+.shop-filter-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.shop-filter-btns button {
+  padding: 7px 14px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.shop-filter-btns button:hover {
+  background: #ddd;
+}
+
+/* CARD */
+.shop-product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  height: 100%;
+}
+
+.shop-product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.shop-product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* DESC */
+.shop-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* READ MORE BUTTON */
+.shop-read-btn {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.shop-read-btn:hover {
+  text-decoration: underline;
+  color: #0284c7;
+}
+
+/* CATEGORY */
+.shop-category-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ffe312;
+  color: black;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* PRICE */
+.shop-price {
+  font-weight: 600;
+}
+
+/* CART BUTTON */
+.shop-cart-btn {
+  background: #ffe312;
+  color: black;
+  border: none;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.shop-cart-btn:hover {
+  background: #dfc711;
+}
+
+/* CART BOX */
+.shop-cart-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.shop-cart-grid {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.shop-cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.shop-cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ROW GAP */
+.shop-product-page .row {
+  margin-bottom: 55px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .shop-product-card img {
+    height: 180px;
+  }
+
+  .shop-main-title {
+    font-size: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* TOP BAR */
+.shop-card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+/* OFFER BADGE RIGHT SIDE */
+.shop-offer-badge{
+  background: linear-gradient(135deg,#ff3c3c,#ff6b00);
+  color:#fff;
+  font-size:12px;
+  font-weight:700;
+  padding:5px 10px;
+  border-radius:30px;
+  box-shadow:0 4px 12px rgba(255,80,0,0.25);
+  animation:pulseOffer 1.5s infinite;
+}
+
+@keyframes pulseOffer{
+  0%{
+    transform:scale(1);
+  }
+  50%{
+    transform:scale(1.08);
+  }
+  100%{
+    transform:scale(1);
+  }
+}

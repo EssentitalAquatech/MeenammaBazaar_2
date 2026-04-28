@@ -1,0 +1,110 @@
+/* src/components/Hero.css */
+
+.hero-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 125px;
+  min-height: calc(75vh - 125px);
+  background: #ffffff;
+}
+
+/* Full image visible + no left/right gap */
+.image-background {
+  position: absolute;
+  inset: 0;
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
+
+/* Overlay Hidden */
+.video-overlay {
+  display: none;
+}
+
+/* Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #ccc;
+}
+
+.dot.active {
+  background: rgb(26, 169, 226);
+  transform: scale(1.2);
+}
+
+/* Hidden Old Content */
+.hero-content,
+.top-tagline,
+.main-heading,
+.hero-para,
+.hero-buttons {
+  display: none;
+}
+
+/* Large Laptop */
+@media (max-width: 1400px) {
+  .hero-section {
+    min-height: calc(68vh - 125px);
+  }
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+  .hero-section {
+    min-height: calc(62vh - 125px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero-section {
+    margin-top: 115px;
+    min-height: calc(55vh - 115px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-section {
+    margin-top: 102px;
+    min-height: calc(42vh - 102px);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero-section {
+    margin-top: 88px;
+    min-height: calc(34vh - 88px);
+  }
+}
+
+/* Extra Small */
+@media (max-width: 360px) {
+  .hero-section {
+    min-height: calc(30vh - 88px);
+  }
+}

@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== WRAPPER ===== */
+.catWrapper {
+  width: 100%;
+  padding: 80px 6% 60px;
+  background: #fff;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ===== HEADER ===== */
+.catHeader {
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.catTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111;
+}
+
+.catTitle span {
+  color: #f39c12;
+}
+
+.catPara {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* ===== VIEW ALL BUTTON ===== */
+.catHeaderRight {
+  position: absolute;
+  right: 0;
+  top: 60px;
+}
+
+.viewAllBtn {
+  background: #f39c12;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.viewAllBtn:hover {
+  background: #c8810f;
+  color: #000;
+}
+
+/* ===== GRID (PERFECT 4 COLUMN ALIGNMENT) ===== */
+.catGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  margin-top: 50px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* ===== ITEM CENTER FIX ===== */
+.catItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== CIRCLE CENTER FIX ===== */
+.catCircle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
+}
+
+.catCircle img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+/* ===== HOVER ===== */
+.catCircle:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* ===== NAME CENTER FIX ===== */
+.catName {
+  margin-top: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+  width: 100%;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .catGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .catGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catHeaderRight {
+    position: static;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .catGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catCircle {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* 🔥 SCROLL ANIMATION SYSTEM */
+/* ========================= */
+
+.catItem {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+/* when visible */
+.catItem.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* different directions */
+.catItem.left {
+  transform: translateX(-80px);
+}
+
+.catItem.right {
+  transform: translateX(80px);
+}
+
+.catItem.top {
+  transform: translateY(-80px);
+}
+
+.catItem.bottom {
+  transform: translateY(80px);
+}
+
+/* show state overrides */
+.catItem.show.left,
+.catItem.show.right,
+.catItem.show.top,
+.catItem.show.bottom {
+  transform: translate(0,0);
+}

@@ -1,0 +1,83 @@
+.trading-footer {
+  padding: 40px 0;
+}
+
+/* CARD BASE */
+.trading-card {
+  padding: 18px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+/* ICON */
+.icon-box {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0d6efd, #20c997);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+}
+
+/* =========================
+   INITIAL POSITIONS
+========================= */
+.from-left {
+  transform: translateX(-80px);
+}
+
+.from-right {
+  transform: translateX(80px);
+}
+
+.from-top {
+  transform: translateY(-80px);
+}
+
+.from-bottom {
+  transform: translateY(80px);
+}
+
+/* =========================
+   SHOW ANIMATION
+========================= */
+.trading-card.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* TEXT */
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0b3d2e;
+}
+
+.desc {
+  font-size: 12.5px;
+  color: #6c757d;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .trading-card {
+    padding: 15px;
+  }
+
+  .icon-box {
+    height: 45px;
+    width: 45px;
+    font-size: 18px;
+  }
+}
+@media (min-width: 1400px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+        max-width: 1400px;
+    }
+}

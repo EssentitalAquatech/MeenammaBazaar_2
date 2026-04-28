@@ -1,0 +1,159 @@
+/* ============================= */
+/* MEDICINES PAGE UNIQUE CSS */
+/* ============================= */
+
+.med-product-page {
+  background-color: #fff;
+  background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
+  background-size: 18px 18px;
+  min-height: 100vh;
+  padding-top: 90px;
+}
+
+/* TITLE */
+.med-main-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 40px;
+}
+
+.med-main-title span {
+  color: #f39c12;
+}
+
+/* SUB TEXT */
+.med-sub-text {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+/* TOP BAR */
+.med-top-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* SEARCH BOX (ISOLATED) */
+.med-search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 320px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.med-search-box input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* CARD */
+.med-product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  height: 100%;
+}
+
+.med-product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMAGE */
+.med-product-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: contain;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+/* CATEGORY */
+.med-category-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ffe312;
+  color: black;
+  padding: 3px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* DESC */
+.med-desc {
+  font-size: 13px;
+  color: #555;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+/* READ MORE */
+.med-read-btn {
+  background: none;
+  border: none;
+  color: #0ea5e9;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.med-read-btn:hover {
+  text-decoration: underline;
+  color: #0284c7;
+}
+
+/* PRICE */
+.med-price {
+  font-weight: 600;
+}
+
+/* CART BUTTON */
+.med-cart-btn {
+  background: #ffe312;
+  color: black;
+  border: none;
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.med-cart-btn:hover {
+  background: #dfc711;
+}
+
+/* ROW GAP */
+.med-product-page .row {
+  margin-bottom: 55px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .med-main-title {
+    font-size: 2rem;
+  }
+
+  .med-product-card img {
+    height: 180px;
+  }
+}

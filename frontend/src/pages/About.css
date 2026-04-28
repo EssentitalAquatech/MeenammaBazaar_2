@@ -1,0 +1,138 @@
+.about-container {
+  background: #ffffff;
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+/* Title */
+.about-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Bazar highlight */
+.about-highlight-yellow-text {
+  color: hsl(38.52deg 91.52% 49.04%);;
+  font-weight: 800;
+}
+
+/* Sub text */
+.about-sub-title {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+.about-aquatech {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+/* Beer */
+
+
+/* ICON BIGGER */
+.about-card-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* CARD TEXT */
+.about-custom-card h5 {
+  color: #000;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.about-custom-card p {
+  color: #000;
+  font-size: 0.95rem;
+}
+
+/* Base Card */
+.about-custom-card {
+  border-radius: 18px;
+  padding: 25px;
+  min-height: 180px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.about-custom-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Gradients */
+.about-card1 {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+
+.about-card2 {
+  background: linear-gradient(135deg, #f7971e, #ffd200);
+}
+
+.about-card3 {
+  background: linear-gradient(135deg, #56ab2f, #a8e063);
+}
+
+/* 🔥 FINAL CTA CARD FIX */
+.about-cta-card {
+  background: linear-gradient(135deg, #e6f7ff, #f2fbff) !important;
+  color: #000 !important;
+}
+
+/* FORCE BLACK TEXT INSIDE LAST CARD */
+.about-cta-card h5,
+.about-cta-card p,
+.about-cta-card i {
+  color: #000 !important;
+}
+
+/* CTA BOX */
+.about-cta-box {
+  background:linear-gradient(180deg, hsl(195, 100%, 66%) 0%, hsl(205, 83%, 47%) 100%);
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* ANIMATION */
+.about-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.about-animate.active {
+  opacity: 1;
+  transform: translate(0);
+}
+
+.about-fade-left { transform: translateX(-80px); }
+.about-fade-right { transform: translateX(80px); }
+.about-fade-up { transform: translateY(80px); }
+.about-fade-down { transform: translateY(-80px); }
+
+.about-fade-left.active,
+.about-fade-right.active,
+.about-fade-up.active,
+.about-fade-down.active {
+  transform: translate(0);
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-main-title {
+    font-size: 2rem;
+  }
+
+  .about-card-icon {
+    font-size: 40px;
+  }
+}
