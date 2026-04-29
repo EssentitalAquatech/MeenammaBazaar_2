@@ -88,6 +88,7 @@ const menuItems = [
 
   // ✅ NEW CONTACT BUTTON
   { key: "nav.contact_us", path: "/contact" },
+  { key: "nav.bulk_order", path: "/contact" },
 ];
 
 function Navbar2() {
