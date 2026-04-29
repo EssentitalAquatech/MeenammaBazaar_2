@@ -72,10 +72,6 @@
 
 
 
-
-
-// src/components/Navbar2.jsx
-
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -88,6 +84,10 @@ const menuItems = [
   { key: "nav.fish_feed", path: "/fish-feed" },
   { key: "nav.water_testing", path: "/water-testing" },
   { key: "nav.medicines", path: "/medicines" },
+  { key: "nav.meenamma_community", path: "/blogs" },
+
+  // ✅ NEW CONTACT BUTTON
+  { key: "nav.contact_us", path: "/contact" },
 ];
 
 function Navbar2() {
@@ -148,7 +148,9 @@ function Navbar2() {
             key={index}
             to={item.path}
             className={({ isActive }) =>
-              isActive ? "navbar2-mobile-link active" : "navbar2-mobile-link"
+              isActive
+                ? "navbar2-mobile-link active"
+                : "navbar2-mobile-link"
             }
             onClick={() => setMenuOpen(false)}
           >

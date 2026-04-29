@@ -1,20 +1,67 @@
+
+
+
 // import axios from "axios";
 
 // const API = axios.create({
-//   baseURL: import.meta.env.VITE_API_URL,
+//   baseURL: "http://localhost:5000/api",
 // });
 
-// export const loginUser = (data) => API.post("/login", data);
+// // USERS
+// export const loginUser = (data) => API.post("/users/login", data);
 
 // export const getMe = (token) =>
-//   API.get("/me", {
+//   API.get("/users/me", {
 //     headers: { Authorization: token },
 //   });
 
 // export const updateMe = (token, data) =>
-//   API.put("/me", data, {
+//   API.put("/users/me", data, {
 //     headers: { Authorization: token },
 //   });
+
+// // ================= OFFERS (FIXED) =================
+// export const getOffers = () => API.get("/offers");  // ✅ correct
+// export const createOffer = (data) => API.post("/offers", data);
+// export const deleteOffer = (product) =>
+//   API.delete(`/offers/${product}`);
+
+
+
+
+
+// // ================= ORDERS =================
+
+// export const placeOrder = (data) =>
+//   API.post("/orders/place", data);
+
+// export const getAllOrders = () =>
+//   API.get("/orders/all");
+
+// export const updateOrderStatus = (id, status) =>
+//   API.put(`/orders/status/${id}`, { status });
+
+
+
+
+
+
+
+
+// export const getMyOrders = (phone) =>
+//   API.get(`/orders/my/${phone}`);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,15 +85,13 @@ export const updateMe = (token, data) =>
     headers: { Authorization: token },
   });
 
-// ================= OFFERS (FIXED) =================
-export const getOffers = () => API.get("/offers");  // ✅ correct
+// ================= OFFERS =================
+export const getOffers = () => API.get("/offers");
+
 export const createOffer = (data) => API.post("/offers", data);
+
 export const deleteOffer = (product) =>
   API.delete(`/offers/${product}`);
-
-
-
-
 
 // ================= ORDERS =================
 
@@ -59,12 +104,32 @@ export const getAllOrders = () =>
 export const updateOrderStatus = (id, status) =>
   API.put(`/orders/status/${id}`, { status });
 
-
-
-
-
-
-
-
 export const getMyOrders = (phone) =>
   API.get(`/orders/my/${phone}`);
+
+// ================= BLOG =================
+
+// Get all blogs
+export const getBlogs = () =>
+  API.get("/blogs");
+
+// Create new blog
+export const createBlog = (formData) =>
+  API.post("/blogs", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+
+
+
+
+
+  //===================contact===========
+  export const createContact = (data) =>
+  API.post("/contact", data);
+
+
+
+  export const getContacts = () =>
+  API.get("/contact");

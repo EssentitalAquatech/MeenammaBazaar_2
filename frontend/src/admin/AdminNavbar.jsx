@@ -25,6 +25,10 @@ const AdminNavbar = ({ setActiveTab }) => {
           Order
         </button>
 
+        <button onClick={() => setActiveTab("contact")}>
+  Contact
+</button>
+
       </div>
 
     </nav>

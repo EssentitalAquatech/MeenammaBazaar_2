@@ -29,6 +29,9 @@ import Recovery from "./pages/Recovery";
 import Login from "./pages/Login";
 
 import AdminMain from "./admin/AdminMain";
+import BlogPage from "./pages/BlogPage";
+import ContactUs from "./pages/ContactUs";
+
 
 
 
@@ -68,6 +71,11 @@ function App() {
                        <Route path="/login" element={<Login/>} />
 
                              <Route path="/adminMain" element={<AdminMain/>} />
+
+                             <Route path="/blogs" element={<BlogPage/>} />
+                             <Route path="/contact" element={<ContactUs/>} />
+
+                             
                               
 
                          
