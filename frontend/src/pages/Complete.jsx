@@ -180,11 +180,10 @@
 
 
 
-
-
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
 import { useCart } from "../components/CartContext";
+import { getOffers } from "../api";
 
 const data = [
   {
@@ -227,56 +226,74 @@ export default function Complete() {
 
   const { cart, addToCart } = useCart();
 
+  // ================= UNIFIED OFFER API =================
   useEffect(() => {
-    const saved =
-      JSON.parse(localStorage.getItem("adminOffers")) || {};
-    setOffers(saved);
+    const fetchOffers = async () => {
+      try {
+        const res = await getOffers();
+
+        const formatted = {};
+        (res.data || []).forEach((item) => {
+          formatted[item.product?.trim()] = Number(item.discount) || 0;
+        });
+
+        setOffers(formatted);
+      } catch (err) {
+        console.log("Offer API Error:", err);
+      }
+    };
+
+    fetchOffers();
   }, []);
 
-  const isInCart = (item) => {
-    return cart.some((c) => c.product.name === item.name);
-  };
+  // ================= OFFER GETTER =================
+  const getOffer = (name) => Number(offers[name?.trim()]) || 0;
 
-  const getOffer = (productName) => {
-    return Number(offers[productName.trim()]) || 0;
-  };
+  const isInCart = (item) =>
+    cart.some((c) => c.product.name === item.name);
 
-  /* SAME WORKING OFFER LOGIC */
-  const getDiscountedPrice = (price, productName) => {
-    const offer = getOffer(productName);
-    const basePrice = Number(price);
-
-    if (!offer || offer <= 0) {
-      return <>₹{basePrice.toFixed(2)}</>;
-    }
-
-    const finalPrice =
-      basePrice - (basePrice * offer) / 100;
-
-    return (
-      <>
-        <span className="old-price">
-          ₹{basePrice.toFixed(2)}
-        </span>{" "}
-        <span className="new-price">
-          ₹{finalPrice.toFixed(2)}
-        </span>
-      </>
-    );
-  };
-
+  // ================= FILTER =================
   const filteredData = data.filter((p) => {
     const matchSearch = p.name
       .toLowerCase()
       .includes(search.toLowerCase());
 
     const matchFilter =
-      filter === "All"
-        ? true
-        : p.category === filter;
+      filter === "All" ? true : p.category === filter;
 
     return matchSearch && matchFilter;
   });
+
+  // ================= PRICE SYSTEM (UNIFIED) =================
+  const calculatePrice = (price, discount) => {
+    const num = parseFloat(price);
+
+    if (isNaN(num)) return price;
+
+    if (!discount || discount <= 0) {
+      return <span>₹{num.toFixed(2)}</span>;
+    }
+
+    const finalPrice = num - (num * discount) / 100;
+
+    return (
+      <>
+        <span
+          style={{
+            textDecoration: "line-through",
+            color: "#888",
+            marginRight: "8px",
+          }}
+        >
+          ₹{num.toFixed(2)}
+        </span>
+
+        <span style={{ color: "green", fontWeight: "700" }}>
+          ₹{finalPrice.toFixed(2)}
+        </span>
+      </>
+    );
+  };
 
   return (
     <div className="shop-product-page">
@@ -284,17 +301,16 @@ export default function Complete() {
 
         {/* TITLE */}
         <h2 className="shop-main-title mt-4">
-          Complete Pond Health Kit
-          <span> Products</span>
+          Complete Pond Health Kit <span>Products</span>
         </h2>
 
-        {/* DESCRIPTION */}
         <p className="shop-sub-text">
           Scientifically backed products for inland aquaculture.
         </p>
 
         {/* SEARCH */}
         <div className="shop-top-bar">
+
           <div className="shop-search-box">
             <i className="fa fa-search"></i>
 
@@ -302,97 +318,92 @@ export default function Complete() {
               type="text"
               placeholder="Search Products"
               value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
+
         </div>
 
         {/* PRODUCTS */}
         <div className="row mt-4 g-4">
-          {filteredData.map((p, i) => (
-            <div
-              className="col-lg-4 col-md-6 col-sm-12"
-              key={i}
-            >
-              <div className="shop-product-card">
 
-                {/* CATEGORY / OFFER */}
-                <div className="shop-category-label">
-                  {getOffer(p.name) > 0
-                    ? `${getOffer(p.name)}% OFF`
-                    : p.category}
+          {filteredData.map((p, i) => {
+            const discount = getOffer(p.name);
+
+            return (
+              <div className="col-lg-4 col-md-6 col-sm-12" key={i}>
+                <div className="shop-product-card">
+
+                  {/* TOP */}
+                  <div className="shop-card-top">
+                    <div className="shop-category-label">
+                      {p.category}
+                    </div>
+
+                    {discount > 0 && (
+                      <div className="shop-offer-badge">
+                        {discount}% OFF
+                      </div>
+                    )}
+                  </div>
+
+                  {/* IMAGE */}
+                  <img src={p.image} alt={p.name} />
+
+                  {/* NAME */}
+                  <h5 className="mt-2">{p.name}</h5>
+
+                  {/* DESCRIPTION */}
+                  <p className="shop-desc">
+                    {openIndex === i
+                      ? p.desc
+                      : p.desc.substring(0, 90) + "..."}
+                  </p>
+
+                  <button
+                    className="shop-read-btn"
+                    onClick={() =>
+                      setOpenIndex(openIndex === i ? null : i)
+                    }
+                  >
+                    {openIndex === i ? "Read Less" : "Read More"}
+                  </button>
+
+                  {/* SIZE */}
+                  <p>
+                    <b>Size:</b> {p.size.join(" | ")}
+                  </p>
+
+                  {/* PRICE */}
+                  <p className="shop-price">
+                    <b>Price:</b>{" "}
+                    {p.price.map((item, index) => (
+                      <span key={index}>
+                        {calculatePrice(item, discount)}
+                        {index !== p.price.length - 1 && " | "}
+                      </span>
+                    ))}
+                  </p>
+
+                  {/* CART */}
+                  <button
+                    className="shop-cart-btn"
+                    onClick={() =>
+                      addToCart({
+                        product: p,
+                        selectedSizeIndex: 0,
+                      })
+                    }
+                    disabled={isInCart(p)}
+                  >
+                    {isInCart(p) ? "Added ✔" : "🛒 Add"}
+                  </button>
+
                 </div>
-
-                {/* IMAGE */}
-                <img src={p.image} alt={p.name} />
-
-                {/* NAME */}
-                <h5 className="mt-2">{p.name}</h5>
-
-                {/* DESCRIPTION */}
-                <p className="shop-desc">
-                  {openIndex === i
-                    ? p.desc
-                    : p.desc.substring(0, 90) + "..."}
-                </p>
-
-                {/* READ MORE */}
-                <button
-                  className="shop-read-btn"
-                  onClick={() =>
-                    setOpenIndex(
-                      openIndex === i ? null : i
-                    )
-                  }
-                >
-                  {openIndex === i
-                    ? "Read Less"
-                    : "Read More"}
-                </button>
-
-                {/* SIZE */}
-                <p>
-                  <b>Size:</b>{" "}
-                  {p.size.join(" | ")}
-                </p>
-
-                {/* PRICE */}
-                <p className="shop-price">
-                  <b>Price:</b>{" "}
-                  {p.price.map((item, index) => (
-                    <span key={index}>
-                      {getDiscountedPrice(
-                        item,
-                        p.name
-                      )}
-                      {index !==
-                        p.price.length - 1 &&
-                        " | "}
-                    </span>
-                  ))}
-                </p>
-
-                {/* ADD TO CART */}
-                <button
-                  className="shop-cart-btn"
-                  onClick={() =>
-                    addToCart({
-                      product: p,
-                      selectedSizeIndex: 0,
-                    })
-                  }
-                  disabled={isInCart(p)}
-                >
-                  {isInCart(p)
-                    ? "Added ✔"
-                    : "🛒 Add"}
-                </button>
-
               </div>
-            </div>
-          ))}
+            );
+          })}
+
         </div>
 
       </div>

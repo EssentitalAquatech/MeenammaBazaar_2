@@ -1,0 +1,87 @@
+/* ===== ONLY THIS PAGE ===== */
+.authPage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  font-family: "Segoe UI", sans-serif;
+  padding: 20px;
+}
+
+/* ===== CARD ===== */
+.authPage .authCard {
+  width: 380px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* ===== INPUTS ONLY THIS PAGE ===== */
+.authPage .authCard input,
+.authPage .authCard textarea {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s ease;
+  background: #f9fafb;
+}
+
+/* focus effect */
+.authPage .authCard input:focus,
+.authPage .authCard textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
+  background: #fff;
+}
+
+/* textarea */
+.authPage .authCard textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* ===== BUTTONS ===== */
+.authPage .authCard button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.authPage .authCard button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* ===== EDIT BUTTON DIFFERENT COLOR ===== */
+.authPage .authCard button:nth-child(4) {
+  background: #f59e0b;
+}
+
+.authPage .authCard button:nth-child(4):hover {
+  background: #d97706;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -153,9 +153,13 @@
 
 
 
+
+
+
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
 import { useCart } from "../components/CartContext";
+import { getOffers } from "../api";
 
 const data = [
   {
@@ -177,32 +181,43 @@ export default function Oxygen() {
 
   const { cart, addToCart } = useCart();
 
+  // ================= OFFERS API =================
+  const fetchOffers = async () => {
+    try {
+      const res = await getOffers();
+
+      const formatted = {};
+      res.data.forEach((item) => {
+        formatted[item.product] = item.discount;
+      });
+
+      setOffers(formatted);
+    } catch (err) {
+      console.log("Offer API Error:", err);
+    }
+  };
+
   useEffect(() => {
-    const saved =
-      JSON.parse(localStorage.getItem("adminOffers")) || {};
-    setOffers(saved);
+    fetchOffers();
   }, []);
 
-  const isInCart = (item) => {
-    return cart.some((c) => c.product.name === item.name);
-  };
+  const isInCart = (item) =>
+    cart.some((c) => c.product.name === item.name);
 
-  const getOffer = (productName) => {
-    return offers[productName.trim()] || 0;
-  };
+  const filteredData = data.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
 
-  /* SAME OFFER CALCULATION */
+  // ================= UNIFIED PRICE SYSTEM =================
   const calculatePrice = (price, discount) => {
     const num = parseFloat(price);
 
     if (isNaN(num)) return price;
 
-    if (!discount || discount <= 0) {
-      return `₹${num.toFixed(2)}`;
-    }
+    if (!discount || discount <= 0)
+      return <span>₹{num.toFixed(2)}</span>;
 
-    const finalPrice =
-      num - (num * discount) / 100;
+    const finalPrice = num - (num * discount) / 100;
 
     return (
       <>
@@ -217,33 +232,21 @@ export default function Oxygen() {
           ₹{num.toFixed(2)}
         </span>
 
-        <span
-          style={{
-            color: "green",
-            fontWeight: "700",
-          }}
-        >
+        <span style={{ color: "green", fontWeight: "700" }}>
           ₹{finalPrice.toFixed(2)}
         </span>
       </>
     );
   };
 
-  const filteredData = data.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
     <div className="shop-product-page">
       <div className="container py-5">
 
-        {/* TITLE */}
         <h2 className="shop-main-title mt-4">
-          Oxygen & Emergency Care
-          <span> Products</span>
+          Oxygen & Emergency Care <span>Products</span>
         </h2>
 
-        {/* DESCRIPTION */}
         <p className="shop-sub-text">
           Scientifically backed products for inland aquaculture.
         </p>
@@ -257,9 +260,7 @@ export default function Oxygen() {
               type="text"
               placeholder="Search Products"
               value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
@@ -268,100 +269,62 @@ export default function Oxygen() {
         <div className="row mt-4 g-4">
 
           {filteredData.map((p, i) => {
-            const discount =
-              getOffer(p.name);
+            const discount = offers[p.name] || 0;
 
             return (
-              <div
-                className="col-lg-4 col-md-6 col-sm-12"
-                key={i}
-              >
+              <div className="col-lg-4 col-md-6 col-sm-12" key={i}>
                 <div className="shop-product-card">
 
                   {/* TOP BAR */}
                   <div className="shop-card-top">
-
-                    {/* CATEGORY */}
                     <div className="shop-category-label">
                       {p.category}
                     </div>
 
-                    {/* OFFER */}
                     {discount > 0 && (
                       <div className="shop-offer-badge">
                         {discount}% OFF
                       </div>
                     )}
-
                   </div>
 
                   {/* IMAGE */}
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                  />
+                  <img src={p.image} alt={p.name} />
 
                   {/* NAME */}
-                  <h5 className="mt-2">
-                    {p.name}
-                  </h5>
+                  <h5 className="mt-2">{p.name}</h5>
 
                   {/* DESCRIPTION */}
                   <p className="shop-desc">
                     {openIndex === i
                       ? p.desc
-                      : p.desc.substring(
-                          0,
-                          90
-                        ) + "..."}
+                      : p.desc.substring(0, 90) + "..."}
                   </p>
 
                   {/* READ MORE */}
                   <button
                     className="shop-read-btn"
                     onClick={() =>
-                      setOpenIndex(
-                        openIndex === i
-                          ? null
-                          : i
-                      )
+                      setOpenIndex(openIndex === i ? null : i)
                     }
                   >
-                    {openIndex === i
-                      ? "Read Less"
-                      : "Read More"}
+                    {openIndex === i ? "Read Less" : "Read More"}
                   </button>
 
                   {/* SIZE */}
                   <p>
-                    <b>Size:</b>{" "}
-                    {p.size.join(" | ")}
+                    <b>Size:</b> {p.size.join(" | ")}
                   </p>
 
-                  {/* PRICE */}
+                  {/* PRICE (UNIFIED DESIGN FIXED) */}
                   <div className="shop-price">
-                    <b>Price:</b>
-
-                    {p.price.map(
-                      (
-                        itemPrice,
-                        index
-                      ) => (
-                        <div
-                          key={index}
-                          style={{
-                            marginTop:
-                              "5px",
-                          }}
-                        >
-                          {p.size[index]} :{" "}
-                          {calculatePrice(
-                            itemPrice,
-                            discount
-                          )}
-                        </div>
-                      )
-                    )}
+                    <b>Price:</b>{" "}
+                    {p.price.map((itemPrice, index) => (
+                      <div key={index} style={{ marginTop: "5px" }}>
+                        {p.size[index]} :{" "}
+                        {calculatePrice(itemPrice, offers[p.name])}
+                      </div>
+                    ))}
                   </div>
 
                   {/* CART */}
@@ -375,9 +338,7 @@ export default function Oxygen() {
                     }
                     disabled={isInCart(p)}
                   >
-                    {isInCart(p)
-                      ? "Added ✔"
-                      : "🛒 Add"}
+                    {isInCart(p) ? "Added ✔" : "🛒 Add"}
                   </button>
 
                 </div>

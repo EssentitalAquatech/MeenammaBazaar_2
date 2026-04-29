@@ -250,11 +250,10 @@
 
 
 
-
-
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
 import { useCart } from "../components/CartContext";
+import { getOffers } from "../api";
 
 const data = [
   {
@@ -353,31 +352,45 @@ export default function WaterTesting() {
   const [openIndex, setOpenIndex] = useState(null);
   const [search, setSearch] = useState("");
   const [offers, setOffers] = useState({});
-
   const { cart, addToCart } = useCart();
 
-  useEffect(() => {
-    const saved =
-      JSON.parse(localStorage.getItem("adminOffers")) || {};
-    setOffers(saved);
-  }, []);
+  // ================= OFFERS API =================
+  const fetchOffers = async () => {
+    try {
+      const res = await getOffers();
 
-  const isInCart = (item) => {
-    return cart.some((c) => c.product.name === item.name);
+      const formatted = {};
+      res.data.forEach((item) => {
+        formatted[item.product] = item.discount;
+      });
+
+      setOffers(formatted);
+    } catch (err) {
+      console.log("Offer API Error:", err);
+    }
   };
 
-  /* SAME OFFER CALCULATION */
+  useEffect(() => {
+    fetchOffers();
+  }, []);
+
+  const isInCart = (item) =>
+    cart.some((c) => c.product.name === item.name);
+
+  const filteredData = data.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // ================= UNIFIED PRICE SYSTEM =================
   const calculatePrice = (price, discount) => {
     const num = parseFloat(price);
 
     if (isNaN(num)) return price;
 
-    if (!discount || discount <= 0) {
-      return `₹${num.toFixed(2)}`;
-    }
+    if (!discount || discount <= 0)
+      return <span>₹{num.toFixed(2)}</span>;
 
-    const finalPrice =
-      num - (num * discount) / 100;
+    const finalPrice = num - (num * discount) / 100;
 
     return (
       <>
@@ -392,21 +405,12 @@ export default function WaterTesting() {
           ₹{num.toFixed(2)}
         </span>
 
-        <span
-          style={{
-            color: "green",
-            fontWeight: "700",
-          }}
-        >
+        <span style={{ color: "green", fontWeight: "700" }}>
           ₹{finalPrice.toFixed(2)}
         </span>
       </>
     );
   };
-
-  const filteredData = data.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
 
   return (
     <div className="shop-product-page">
@@ -420,6 +424,7 @@ export default function WaterTesting() {
           Scientifically backed products for inland aquaculture.
         </p>
 
+        {/* SEARCH */}
         <div className="shop-top-bar">
           <div className="shop-search-box">
             <i className="fa fa-search"></i>
@@ -428,29 +433,23 @@ export default function WaterTesting() {
               type="text"
               placeholder="Search Products"
               value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
 
+        {/* PRODUCTS */}
         <div className="row mt-4 g-4">
 
           {filteredData.map((p, i) => {
-            const discount =
-              offers[p.name] || 0;
+            const discount = offers[p.name] || 0;
 
             return (
-              <div
-                className="col-lg-4 col-md-6 col-sm-12"
-                key={i}
-              >
+              <div className="col-lg-4 col-md-6 col-sm-12" key={i}>
                 <div className="shop-product-card">
 
-                  {/* TOP BAR */}
+                  {/* TOP */}
                   <div className="shop-card-top">
-
                     <div className="shop-category-label">
                       {p.category}
                     </div>
@@ -460,70 +459,40 @@ export default function WaterTesting() {
                         {discount}% OFF
                       </div>
                     )}
-
                   </div>
 
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                  />
+                  <img src={p.image} alt={p.name} />
 
-                  <h5 className="mt-2">
-                    {p.name}
-                  </h5>
+                  <h5 className="mt-2">{p.name}</h5>
 
                   <p className="shop-desc">
                     {openIndex === i
                       ? p.desc
-                      : p.desc.substring(
-                          0,
-                          90
-                        ) + "..."}
+                      : p.desc.substring(0, 90) + "..."}
                   </p>
 
                   <button
                     className="shop-read-btn"
                     onClick={() =>
-                      setOpenIndex(
-                        openIndex === i
-                          ? null
-                          : i
-                      )
+                      setOpenIndex(openIndex === i ? null : i)
                     }
                   >
-                    {openIndex === i
-                      ? "Read Less"
-                      : "Read More"}
+                    {openIndex === i ? "Read Less" : "Read More"}
                   </button>
 
                   <p>
-                    <b>Size:</b>{" "}
-                    {p.size.join(" | ")}
+                    <b>Size:</b> {p.size.join(" | ")}
                   </p>
 
+                  {/* PRICE (UNIFIED DESIGN) */}
                   <div className="shop-price">
-                    <b>Price:</b>
-
-                    {p.price.map(
-                      (
-                        itemPrice,
-                        index
-                      ) => (
-                        <div
-                          key={index}
-                          style={{
-                            marginTop:
-                              "5px",
-                          }}
-                        >
-                          {p.size[index]} :{" "}
-                          {calculatePrice(
-                            itemPrice,
-                            discount
-                          )}
-                        </div>
-                      )
-                    )}
+                    <b>Price:</b>{" "}
+                    {p.price.map((price, index) => (
+                      <div key={index}>
+                        {p.size[index]} :{" "}
+                        {calculatePrice(price, discount)}
+                      </div>
+                    ))}
                   </div>
 
                   <button
@@ -536,9 +505,7 @@ export default function WaterTesting() {
                     }
                     disabled={isInCart(p)}
                   >
-                    {isInCart(p)
-                      ? "Added ✔"
-                      : "🛒 Add"}
+                    {isInCart(p) ? "Added ✔" : "🛒 Add"}
                   </button>
 
                 </div>

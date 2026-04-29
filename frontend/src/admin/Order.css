@@ -1,0 +1,48 @@
+.adminOrdersPage {
+  padding: 30px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.adminOrdersPage h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  gap: 20px;
+}
+
+.orderCard {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+.itemBox {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.pendingBtn,
+.doneBtn {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.pendingBtn {
+  background: orange;
+}
+
+.doneBtn {
+  background: green;
+}

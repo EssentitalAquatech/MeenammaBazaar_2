@@ -206,7 +206,7 @@ function Footer() {
             <ul className="ea-links">
               <li><Link to="/privacy-policy">{t("footer1.privacy")}</Link></li>
               <li><Link to="/return-policy">{t("footer1.return")}</Link></li>
-              <li><Link to="/adminDashboard">{t("footer1.admin")}</Link></li>
+              <li><Link to="/adminMain">{t("footer1.admin")}</Link></li>
             </ul>
           </div>
 

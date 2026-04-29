@@ -180,11 +180,10 @@
 
 
 
-
-
 import React, { useState, useEffect } from "react";
 import "./Shop.css";
 import { useCart } from "../components/CartContext";
+import { getOffers } from "../api";
 
 const data = [
   {
@@ -226,32 +225,48 @@ export default function Plankton() {
 
   const { cart, addToCart } = useCart();
 
+  // ================= UNIFIED OFFER API =================
   useEffect(() => {
-    const saved =
-      JSON.parse(localStorage.getItem("adminOffers")) || {};
-    setOffers(saved);
+    const fetchOffers = async () => {
+      try {
+        const res = await getOffers();
+
+        const formatted = {};
+        (res.data || []).forEach((item) => {
+          formatted[item.product?.trim()] = Number(item.discount) || 0;
+        });
+
+        setOffers(formatted);
+      } catch (err) {
+        console.log("Offer API Error:", err);
+      }
+    };
+
+    fetchOffers();
   }, []);
 
-  const isInCart = (item) => {
-    return cart.some((c) => c.product.name === item.name);
-  };
+  // ================= OFFER GETTER =================
+  const getOffer = (name) => Number(offers[name?.trim()]) || 0;
 
-  const getOffer = (productName) => {
-    return Number(offers[productName.trim()]) || 0;
-  };
+  const isInCart = (item) =>
+    cart.some((c) => c.product.name === item.name);
 
-  /* SAME ADMIN DASHBOARD PRICE CALCULATION */
+  // ================= SEARCH =================
+  const filteredData = data.filter((p) =>
+    p.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // ================= PRICE SYSTEM (UNIFIED) =================
   const calculatePrice = (price, discount) => {
     const num = parseFloat(price);
 
     if (isNaN(num)) return price;
 
     if (!discount || discount <= 0) {
-      return `₹${num.toFixed(2)}`;
+      return <span>₹{num.toFixed(2)}</span>;
     }
 
-    const finalPrice =
-      num - (num * discount) / 100;
+    const finalPrice = num - (num * discount) / 100;
 
     return (
       <>
@@ -266,35 +281,26 @@ export default function Plankton() {
           ₹{num.toFixed(2)}
         </span>
 
-        <span
-          style={{
-            color: "green",
-            fontWeight: "700",
-          }}
-        >
+        <span style={{ color: "green", fontWeight: "700" }}>
           ₹{finalPrice.toFixed(2)}
         </span>
       </>
     );
   };
 
-  const filteredData = data.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
     <div className="shop-product-page">
       <div className="container py-5">
 
         <h2 className="shop-main-title mt-4">
-          Plankton & Natural Feed Boosters
-          <span> Products</span>
+          Plankton & Natural Feed Boosters <span>Products</span>
         </h2>
 
         <p className="shop-sub-text">
           Scientifically backed products for inland aquaculture.
         </p>
 
+        {/* SEARCH */}
         <div className="shop-top-bar">
           <div className="shop-search-box">
             <i className="fa fa-search"></i>
@@ -303,28 +309,23 @@ export default function Plankton() {
               type="text"
               placeholder="Search Products"
               value={search}
-              onChange={(e) =>
-                setSearch(e.target.value)
-              }
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
 
+        {/* PRODUCTS */}
         <div className="row mt-4 g-4">
 
           {filteredData.map((p, i) => {
             const discount = getOffer(p.name);
 
             return (
-              <div
-                className="col-lg-4 col-md-6 col-sm-12"
-                key={i}
-              >
+              <div className="col-lg-4 col-md-6 col-sm-12" key={i}>
                 <div className="shop-product-card">
 
-                  {/* TOP BAR */}
+                  {/* TOP */}
                   <div className="shop-card-top">
-
                     <div className="shop-category-label">
                       {p.category}
                     </div>
@@ -334,73 +335,48 @@ export default function Plankton() {
                         {discount}% OFF
                       </div>
                     )}
-
                   </div>
 
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                  />
+                  {/* IMAGE */}
+                  <img src={p.image} alt={p.name} />
 
-                  <h5 className="mt-2">
-                    {p.name}
-                  </h5>
+                  {/* NAME */}
+                  <h5 className="mt-2">{p.name}</h5>
 
+                  {/* DESCRIPTION */}
                   <p className="shop-desc">
                     {openIndex === i
                       ? p.desc
-                      : p.desc.substring(
-                          0,
-                          90
-                        ) + "..."}
+                      : p.desc.substring(0, 90) + "..."}
                   </p>
 
                   <button
                     className="shop-read-btn"
                     onClick={() =>
-                      setOpenIndex(
-                        openIndex === i
-                          ? null
-                          : i
-                      )
+                      setOpenIndex(openIndex === i ? null : i)
                     }
                   >
-                    {openIndex === i
-                      ? "Read Less"
-                      : "Read More"}
+                    {openIndex === i ? "Read Less" : "Read More"}
                   </button>
 
+                  {/* SIZE */}
                   <p>
-                    <b>Size:</b>{" "}
-                    {p.size.join(" | ")}
+                    <b>Size:</b> {p.size.join(" | ")}
                   </p>
 
-                  {/* PRICE SAME AS ADMIN PAGE */}
+                  {/* PRICE */}
                   <div className="shop-price">
                     <b>Price:</b>
 
-                    {p.price.map(
-                      (
-                        itemPrice,
-                        index
-                      ) => (
-                        <div
-                          key={index}
-                          style={{
-                            marginTop:
-                              "5px",
-                          }}
-                        >
-                          {p.size[index]} :{" "}
-                          {calculatePrice(
-                            itemPrice,
-                            discount
-                          )}
-                        </div>
-                      )
-                    )}
+                    {p.price.map((price, index) => (
+                      <div key={index} style={{ marginTop: "5px" }}>
+                        {p.size[index]} :{" "}
+                        {calculatePrice(price, discount)}
+                      </div>
+                    ))}
                   </div>
 
+                  {/* CART */}
                   <button
                     className="shop-cart-btn"
                     onClick={() =>
@@ -411,9 +387,7 @@ export default function Plankton() {
                     }
                     disabled={isInCart(p)}
                   >
-                    {isInCart(p)
-                      ? "Added ✔"
-                      : "🛒 Add"}
+                    {isInCart(p) ? "Added ✔" : "🛒 Add"}
                   </button>
 
                 </div>
