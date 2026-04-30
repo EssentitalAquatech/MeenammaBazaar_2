@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* PAGE */
+.admin-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 15px;
+  font-family: "Poppins", sans-serif;
+  margin-top: 120px;
+}
+
+/* CARD */
+.admin-box {
+  width: 100%;
+  max-width: 600px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  margin-top: 100px;
+}
+
+/* TITLE */
+.admin-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 25px;
+}
+
+/* LABEL */
+.admin-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin: 12px 0 6px;
+}
+
+/* INPUT */
+.admin-input {
+  width: 100%;
+  height: 48px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.admin-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+/* BUTTON */
+.admin-btn {
+  width: 100%;
+  margin-top: 18px;
+  height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99,102,241,0.25);
+}
+
+/* OFFER LIST */
+.offer-list {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.offer-list h4 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+/* ITEM */
+.offer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  padding: 12px 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+/* TEXT */
+.offer-item span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .admin-box {
+    padding: 20px;
+  }
+
+  .admin-title {
+    font-size: 22px;
+  }
+
+  .offer-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+}

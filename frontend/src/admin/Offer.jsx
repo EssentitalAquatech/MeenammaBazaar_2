@@ -1,10 +1,9 @@
 
 
-
 // import React, { useState, useEffect } from "react";
-// import "./AdminDashboard.css";
+// import "./Offer.css";
+// import { getOffers, createOffer, deleteOffer } from "../api";
 
-// /* ALL PRODUCTS DATA */
 // const products = [
 //   { name: "AQUEAMINA", price: "1KG - ₹195.50 | 10KG - ₹1572.50 | 20KG - ₹2660.50" },
 //   { name: "BOTTOM SEAF", price: "1KG - ₹1062.50" },
@@ -35,131 +34,90 @@
 //   const [discount, setDiscount] = useState("");
 //   const [offers, setOffers] = useState({});
 
+//   // ================= FETCH =================
+//   const fetchOffers = async () => {
+//     try {
+//       const res = await getOffers();
+
+//       const map = {};
+//       res.data.forEach((o) => {
+//         map[o.product] = o.discount;
+//       });
+
+//       setOffers(map);
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   };
+
 //   useEffect(() => {
-//     const saved =
-//       JSON.parse(localStorage.getItem("adminOffers")) || {};
-//     setOffers(saved);
+//     fetchOffers();
 //   }, []);
 
-//   const saveOffer = () => {
-//     if (!selectedProduct || discount === "") {
-//       alert("Please select product and enter offer");
+//   // ================= SAVE =================
+//   const saveOffer = async () => {
+//     if (!selectedProduct || !discount) {
+//       alert("Fill all fields");
 //       return;
 //     }
 
-//     const newOffers = {
-//       ...offers,
-//       [selectedProduct]: Number(discount),
-//     };
+//     await createOffer({
+//       product: selectedProduct,
+//       discount: Number(discount),
+//     });
 
-//     localStorage.setItem(
-//       "adminOffers",
-//       JSON.stringify(newOffers)
-//     );
-
-//     setOffers(newOffers);
+//     setSelectedProduct("");
 //     setDiscount("");
-
-//     alert("Offer Saved Successfully ✅");
+//     fetchOffers();
 //   };
 
-//   const deleteOffer = (product) => {
-//     const updated = { ...offers };
-
-//     delete updated[product];
-
-//     localStorage.setItem(
-//       "adminOffers",
-//       JSON.stringify(updated)
-//     );
-
-//     setOffers(updated);
+//   // ================= DELETE =================
+//   const removeOffer = async (product) => {
+//     await deleteOffer(product);
+//     fetchOffers();
 //   };
 
 //   return (
 //     <div className="admin-page">
 //       <div className="admin-box">
 
-//         <h2 className="admin-title">
-//           Admin Offer Dashboard
-//         </h2>
-
-//         {/* SELECT PRODUCT */}
-//         <label className="admin-label">
-//           Select Product
-//         </label>
+//         <h2>Admin Offer Dashboard</h2>
 
 //         <select
-//           className="admin-input"
 //           value={selectedProduct}
-//           onChange={(e) =>
-//             setSelectedProduct(e.target.value)
-//           }
+//           onChange={(e) => setSelectedProduct(e.target.value)}
+//           className="admin-input"
 //         >
-//           <option value="">
-//             -- Select Product --
-//           </option>
-
-//           {products.map((item, index) => (
-//             <option key={index} value={item.name}>
-//               {item.name} ({item.price})
+//           <option value="">Select Product</option>
+//           {products.map((p, i) => (
+//             <option key={i} value={p.name}>
+//               {p.name}
 //             </option>
 //           ))}
 //         </select>
 
-//         {/* OFFER INPUT */}
-//         <label className="admin-label">
-//           Discount %
-//         </label>
-
 //         <input
 //           type="number"
-//           placeholder="Enter Offer %"
-//           className="admin-input"
 //           value={discount}
-//           onChange={(e) =>
-//             setDiscount(e.target.value)
-//           }
+//           onChange={(e) => setDiscount(e.target.value)}
+//           placeholder="Discount %"
+//           className="admin-input"
 //         />
 
-//         {/* BUTTON */}
-//         <button
-//           className="admin-btn"
-//           onClick={saveOffer}
-//         >
+//         <button className="admin-btn" onClick={saveOffer}>
 //           Save Offer
 //         </button>
 
-//         {/* SAVED OFFERS */}
 //         <div className="offer-list">
+//           {Object.entries(offers).map(([p, d]) => (
+//             <div key={p} className="offer-item">
+//               <span>{p} - {d}% OFF</span>
 
-//           <h4>Saved Offers</h4>
-
-//           {Object.keys(offers).length === 0 && (
-//             <p>No Offer Added</p>
-//           )}
-
-//           {Object.entries(offers).map(
-//             ([product, value], i) => (
-//               <div
-//                 className="offer-item"
-//                 key={i}
-//               >
-//                 <span>
-//                   {product} - {value}% OFF
-//                 </span>
-
-//                 <button
-//                   className="delete-btn"
-//                   onClick={() =>
-//                     deleteOffer(product)
-//                   }
-//                 >
-//                   Delete
-//                 </button>
-//               </div>
-//             )
-//           )}
+//               <button onClick={() => removeOffer(p)}>
+//                 Delete
+//               </button>
+//             </div>
+//           ))}
 //         </div>
 
 //       </div>
@@ -181,14 +139,8 @@
 
 
 
-
-
-
-
-
-
 import React, { useState, useEffect } from "react";
-import "./AdminDashboard.css";
+import "./Offer.css";
 import { getOffers, createOffer, deleteOffer } from "../api";
 
 const products = [
@@ -221,16 +173,13 @@ export default function Offer() {
   const [discount, setDiscount] = useState("");
   const [offers, setOffers] = useState({});
 
-  // ================= FETCH =================
   const fetchOffers = async () => {
     try {
       const res = await getOffers();
-
       const map = {};
       res.data.forEach((o) => {
         map[o.product] = o.discount;
       });
-
       setOffers(map);
     } catch (err) {
       console.log(err);
@@ -241,7 +190,6 @@ export default function Offer() {
     fetchOffers();
   }, []);
 
-  // ================= SAVE =================
   const saveOffer = async () => {
     if (!selectedProduct || !discount) {
       alert("Fill all fields");
@@ -258,7 +206,6 @@ export default function Offer() {
     fetchOffers();
   };
 
-  // ================= DELETE =================
   const removeOffer = async (product) => {
     await deleteOffer(product);
     fetchOffers();
@@ -268,14 +215,15 @@ export default function Offer() {
     <div className="admin-page">
       <div className="admin-box">
 
-        <h2>Admin Offer Dashboard</h2>
+        <h2 className="admin-title">🎯 Offer Dashboard</h2>
 
+        <label className="admin-label">Select Product</label>
         <select
           value={selectedProduct}
           onChange={(e) => setSelectedProduct(e.target.value)}
           className="admin-input"
         >
-          <option value="">Select Product</option>
+          <option value="">Choose Product</option>
           {products.map((p, i) => (
             <option key={i} value={p.name}>
               {p.name}
@@ -283,28 +231,35 @@ export default function Offer() {
           ))}
         </select>
 
+        <label className="admin-label">Discount (%)</label>
         <input
           type="number"
           value={discount}
           onChange={(e) => setDiscount(e.target.value)}
-          placeholder="Discount %"
+          placeholder="Enter Discount %"
           className="admin-input"
         />
 
         <button className="admin-btn" onClick={saveOffer}>
-          Save Offer
+          + Save Offer
         </button>
 
         <div className="offer-list">
+          <h4>Active Offers</h4>
+
           {Object.entries(offers).map(([p, d]) => (
             <div key={p} className="offer-item">
-              <span>{p} - {d}% OFF</span>
+              <span>🔥 {p} - {d}% OFF</span>
 
-              <button onClick={() => removeOffer(p)}>
+              <button
+                className="delete-btn"
+                onClick={() => removeOffer(p)}
+              >
                 Delete
               </button>
             </div>
           ))}
+
         </div>
 
       </div>
