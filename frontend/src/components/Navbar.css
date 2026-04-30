@@ -4,16 +4,15 @@
 
 .navbar-custom {
   position: fixed;
-  top: 42px; /* desktop announcement bar height */
+  top: 42px;
   width: 100%;
   z-index: 9998;
   transition: 0.3s;
-  background: #ffffff;   /* fixed white background */
+  background: #ffffff;
 }
 
 .navbar-custom.scrolled {
-  background: #ffffff;   /* always white */
-  backdrop-filter: none;
+  background: #ffffff;
   box-shadow: 0 4px 30px rgba(0,0,0,0.08);
 }
 
@@ -60,6 +59,16 @@
   color: #0ea5e9;
 }
 
+.brand {
+  color: #0ea5e9;
+}
+
+.brand-tagline {
+  display: block;
+  font-size: 12px;
+  color: #666;
+}
+
 /* ========================= */
 /* SEARCH BOX */
 /* ========================= */
@@ -70,11 +79,12 @@
   align-items: center;
   flex: 1;
   max-width: 420px;
-  min-width: 180px;
+  min-width: 0;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 50px;
   overflow: hidden;
+  position: relative;
 }
 
 .search-input {
@@ -92,11 +102,30 @@
   color: white;
   padding: 11px 15px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.search-btn:hover {
-  background: #0284c7;
+/* dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  z-index: 99999;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.search-item {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.search-item:hover {
+  background: #f2f2f2;
 }
 
 /* ========================= */
@@ -123,17 +152,33 @@
 }
 
 /* ========================= */
-/* CART */
+/* CART + BADGE FIX */
 /* ========================= */
 
 .nav-cart-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 20px;
   color: #555;
   text-decoration: none;
 }
 
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  line-height: 1;
+}
+
 /* ========================= */
-/* MOBILE BUTTON */
+/* MOBILE MENU BUTTON */
 /* ========================= */
 
 .menu-btn {
@@ -149,7 +194,7 @@
 
 .mobile-menu {
   position: fixed;
-  top: 112px; /* 42 + 70 */
+  top: 112px;
   left: 0;
   width: 100%;
   height: calc(100vh - 112px);
@@ -158,11 +203,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 30px;
-  gap: 25px;
+  padding-top: 25px;
+  gap: 20px;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
+  z-index: 99999;
 }
 
 .mobile-menu.show {
@@ -171,49 +217,47 @@
 }
 
 .mobile-link {
-  font-size: 24px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 90%;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 20px;
   text-decoration: none;
   color: #000;
 }
 
-/* ========================= */
-/* BRAND */
-/* ========================= */
-
-.brand {
-  color: #0ea5e9;
-}
-
-.brand-tagline {
-  display: block;
-  font-size: 12px;
-  color: #666;
-}
-
-/* ========================= */
-/* LOGIN ICON */
-/* ========================= */
-
-.login-icon {
-  margin-right: 8px;
-  font-size: 15px;
+/* mobile cart badge fix */
+.mobile-badge {
+  position: absolute;
+  top: -4px;
+  right: 35%;
+  transform: translateX(50%);
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
 }
 
 /* ========================= */
-/* LARGE LAPTOP */
+/* LARGE DEVICES */
 /* ========================= */
 
 @media (max-width: 1200px) {
   .logo-text {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   .search-box {
-    max-width: 340px;
+    max-width: 320px;
   }
 
   .nav-links {
-    gap: 20px;
+    gap: 18px;
   }
 }
 
@@ -221,85 +265,61 @@
 /* TABLET */
 /* ========================= */
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .logo-text {
-    font-size: 26px;
-  }
-
-  .logo-img {
-    height: 52px;
+    font-size: 24px;
   }
 
   .search-box {
-    max-width: 250px;
-  }
-
-  .search-input {
-    font-size: 13px;
-    padding: 10px 12px;
-  }
-
-  .search-btn {
-    padding: 10px 13px;
-  }
-
-  .nav-links {
-    gap: 16px;
+    max-width: 260px;
   }
 }
 
 /* ========================= */
-/* MOBILE */
+/* MOBILE FIX (PHONE VIEW MAIN FIX) */
 /* ========================= */
 
 @media (max-width: 768px) {
+
   .navbar-custom {
     top: 38px;
   }
 
   .nav-container {
     height: 64px;
-    gap: 10px;
-    padding: 0 12px;
+    padding: 0 10px;
+    gap: 8px;
   }
 
-  .menu-btn {
-    display: block;
-    flex-shrink: 0;
+  .logo-img {
+    height: 38px;
+  }
+
+  .logo-text {
+    font-size: 16px;
+  }
+
+  .search-box {
+    flex: 1;
+    max-width: 100%;
+    margin: 0 6px;
+  }
+
+  .search-input {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .search-btn {
+    padding: 8px 10px;
   }
 
   .nav-links {
     display: none;
   }
 
-  .search-box {
-    display: flex;
-    max-width: 140px;
-    min-width: 110px;
-    margin-left: auto;
-  }
-
-  .logo-text {
-    font-size: 20px;
-  }
-
-  .logo-img {
-    height: 42px;
-  }
-
-  .search-input {
-    font-size: 11px;
-    padding: 8px 10px;
-  }
-
-  .search-btn {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-
-  .mobile-search-box {
-    width: 92%;
-    max-width: 340px;
+  .menu-btn {
+    display: block;
   }
 
   .mobile-menu {
@@ -318,42 +338,40 @@
   }
 }
 
+/* ========================= */
+/* VERY SMALL DEVICES */
+/* ========================= */
+
 @media (max-width: 480px) {
+
   .nav-container {
     height: 58px;
-    gap: 8px;
     padding: 0 8px;
   }
 
-  .logo-text {
-    font-size: 16px;
+  .logo-img {
+    height: 30px;
   }
 
-  .logo-img {
-    height: 34px;
+  .logo-text {
+    font-size: 14px;
+  }
+
+  .search-box {
+    max-width: 110px;
+  }
+
+  .search-input {
+    font-size: 10px;
+    padding: 7px;
+  }
+
+  .search-btn {
+    padding: 7px;
   }
 
   .brand-tagline {
     font-size: 8px;
-  }
-
-  .search-box {
-    max-width: 115px;
-    min-width: 95px;
-  }
-
-  .search-input {
-    padding: 7px 8px;
-    font-size: 10px;
-  }
-
-  .search-input::placeholder {
-    font-size: 9px;
-  }
-
-  .search-btn {
-    padding: 7px 8px;
-    font-size: 11px;
   }
 
   .mobile-menu {
@@ -367,30 +385,16 @@
 /* ========================= */
 
 @media (max-width: 360px) {
-  .logo-text {
-    font-size: 14px;
-  }
 
-  .logo-img {
-    height: 30px;
+  .logo-text {
+    font-size: 12px;
   }
 
   .search-box {
-    max-width: 95px;
-    min-width: 82px;
+    max-width: 85px;
   }
 
   .search-input {
     font-size: 9px;
-    padding: 6px 6px;
-  }
-
-  .search-input::placeholder {
-    font-size: 8px;
-  }
-
-  .search-btn {
-    padding: 6px 7px;
-    font-size: 10px;
   }
 }

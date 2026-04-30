@@ -11,14 +11,6 @@
   background: #ffffff !important;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  transition: none !important;
-}
-
-/* scroll hone par bhi white hi rahe */
-.navbar2.scrolled,
-.navbar2:hover,
-.navbar2:focus {
-  background: #ffffff !important;
 }
 
 /* ========================= */
@@ -33,10 +25,11 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0 20px;
+  gap: 10px;
 }
 
 /* ========================= */
-/* LINKS */
+/* LINKS SCROLLABLE */
 /* ========================= */
 
 .navbar2-links {
@@ -60,184 +53,15 @@
   font-weight: 500;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: 0.3s;
 }
 
-.navbar2-link:hover {
-  color: #0ea5e9;
-}
-
-/* ========================= */
-/* MOBILE MENU BUTTON HIDE */
-/* ========================= */
-
-.navbar2-menu-btn {
-  display: none;
-}
-
-/* ========================= */
-/* MOBILE MENU REMOVE */
-/* ========================= */
-
-.navbar2-mobile {
-  display: none;
-}
-
-/* ========================= */
-/* LAPTOP */
-/* ========================= */
-
-@media (max-width: 1200px) {
-  .navbar2-links {
-    gap: 20px;
-  }
-
-  .navbar2-link {
-    font-size: 13px;
-  }
-}
-
-/* ========================= */
-/* TABLET */
-/* ========================= */
-
-@media (max-width: 992px) {
-  .navbar2 {
-    top: 112px;
-  }
-
-  .navbar2-container {
-    height: 50px;
-    padding: 0 14px;
-  }
-
-  .navbar2-links {
-    gap: 16px;
-  }
-
-  .navbar2-link {
-    font-size: 12px;
-  }
-}
-
-/* ========================= */
-/* MOBILE */
-/* ========================= */
-
-@media (max-width: 768px) {
-  .navbar2 {
-    top: 102px;
-  }
-
-  .navbar2-container {
-    height: 46px;
-    padding: 0 10px;
-  }
-
-  .navbar2-links {
-    display: flex;
-    gap: 14px;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .navbar2-link {
-    font-size: 11px;
-  }
-}
-
-/* ========================= */
-/* SMALL MOBILE */
-/* ========================= */
-
-@media (max-width: 480px) {
-  .navbar2 {
-    top: 88px;
-  }
-
-  .navbar2-container {
-    height: 42px;
-    padding: 0 8px;
-  }
-
-  .navbar2-links {
-    gap: 12px;
-  }
-
-  .navbar2-link {
-    font-size: 10px;
-  }
-}
-
-/* ========================= */
-/* EXTRA SMALL */
-/* ========================= */
-
-@media (max-width: 360px) {
-  .navbar2-container {
-    height: 40px;
-    padding: 0 6px;
-  }
-
-  .navbar2-links {
-    gap: 10px;
-  }
-
-  .navbar2-link {
-    font-size: 9px;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ACTIVE LINK STYLE */
+/* active */
 .navbar2-link.active {
   color: #0ea5e9;
   font-weight: 700;
   border-bottom: 2px solid #0ea5e9;
   padding-bottom: 4px;
 }
-
-/* MOBILE ACTIVE */
-.navbar2-mobile-link.active {
-  color: #0ea5e9;
-  font-weight: 700;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ========================= */
 /* LANGUAGE DROPDOWN */
@@ -257,9 +81,260 @@
   cursor: pointer;
   outline: none;
   background: #fff;
-  transition: 0.3s;
 }
 
-.lang-select:hover {
-  border-color: #0ea5e9;
+/* ========================= */
+/* MOBILE MENU (HIDDEN - NO CHANGE IN UI) */
+/* ========================= */
+
+.navbar2-menu-btn {
+  display: none;
+}
+
+.navbar2-mobile {
+  display: none;
+}
+
+/* ========================= */
+/* LARGE LAPTOP */
+/* ========================= */
+
+@media (max-width: 1200px) {
+  .navbar2-link {
+    font-size: 13px;
+  }
+
+  .navbar2-links {
+    gap: 18px;
+  }
+}
+
+/* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (max-width: 992px) {
+  .navbar2-container {
+    height: 50px;
+    padding: 0 14px;
+  }
+
+  .navbar2-link {
+    font-size: 12px;
+  }
+
+  .navbar2-links {
+    gap: 14px;
+  }
+}
+
+/* ========================= */
+/* MOBILE FIX (IMPORTANT) */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .navbar2 {
+    top: 102px;
+  }
+
+  .navbar2-container {
+    height: 46px;
+    padding: 0 10px;
+  }
+
+  .navbar2-links {
+    gap: 12px;
+    overflow-x: auto;
+  }
+
+  .navbar2-link {
+    font-size: 11px;
+  }
+
+  .lang-select {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+
+@media (max-width: 576px) {
+  .navbar2 {
+    top: 89px;
+  }
+}
+
+/* ========================= */
+/* VERY SMALL DEVICES */
+/* ========================= */
+
+@media (max-width: 480px) {
+  .navbar2-container {
+    height: 42px;
+    padding: 0 8px;
+  }
+
+  .navbar2-links {
+    gap: 10px;
+  }
+
+  .navbar2-link {
+    font-size: 10px;
+  }
+}
+
+/* ========================= */
+/* EXTRA SMALL */
+/* ========================= */
+
+@media (max-width: 360px) {
+  .navbar2-container {
+    height: 40px;
+    padding: 0 6px;
+  }
+
+  .navbar2-links {
+    gap: 8px;
+  }
+
+  .navbar2-link {
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* MOBILE MENU BUTTON ENABLE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .navbar2-menu-btn {
+    display: block;
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* hide desktop links in mobile (important for hamburger) */
+  .navbar2-links {
+    display: none;
+  }
+}
+
+/* ========================= */
+/* MOBILE DROPDOWN MENU */
+/* ========================= */
+
+.navbar2-mobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  flex-direction: column;
+  border-top: 1px solid #eee;
+  padding: 10px 0;
+}
+
+/* show when open */
+.navbar2-mobile.show {
+  display: flex;
+}
+
+.navbar2-mobile-link {
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #222;
+  font-size: 14px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.navbar2-mobile-link.active {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* GLOBAL FONT IMPROVEMENT */
+/* ========================= */
+
+.navbar2,
+.navbar2 * {
+  font-family: "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ========================= */
+/* LINKS TEXT STYLE */
+/* ========================= */
+
+.navbar2-link {
+  letter-spacing: 0.3px;
+  transition: all 0.2s ease;
+}
+
+.navbar2-link:hover {
+  color: #0ea5e9;
+  transform: translateY(-1px);
+}
+
+/* active link slightly premium look */
+.navbar2-link.active {
+  letter-spacing: 0.5px;
+}
+
+/* ========================= */
+/* LANGUAGE DROPDOWN FONT */
+/* ========================= */
+
+.lang-select {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+/* ========================= */
+/* MOBILE FONT IMPROVEMENT */
+/* ========================= */
+
+.navbar2-mobile-link {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+}
+
+.navbar2-mobile-link:hover {
+  background: #f5f9ff;
+  padding-left: 20px;
 }
