@@ -1,63 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* NAVBAR */
 .admin-navbar {
   width: 100%;
   height: 70px;
-  background: white;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  position: sticky;
+  padding: 0 25px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+
+  position: fixed;   /* 🔥 FIXED */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  margin-top: 130px;
+
+  font-family: "Poppins", sans-serif;
+  margin-top: 168px;
 }
 
+/* TITLE */
 .admin-navbar-title {
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
+  font-size: 35px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: 0.5px;
 }
 
+/* RIGHT BUTTONS */
 .admin-navbar-right {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* BASE BUTTON */
 .admin-navbar-btn {
-  padding: 8px 15px;
+  padding: 9px 16px;
   border: none;
   cursor: pointer;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: 0.3s;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+  font-family: "Poppins", sans-serif;
+
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
+/* BUTTON COLORS */
 .offer-btn {
-  background: orange;
+  background: linear-gradient(135deg, #ff9f43, #ff6b00);
   color: white;
 }
 
 .order-btn {
-  background: blue;
+  background: linear-gradient(135deg, #1e90ff, #0066ff);
   color: white;
 }
 
-.admin-navbar-btn:hover {
-  opacity: 0.8;
+.contact-btn {
+  background: linear-gradient(135deg, #2ed573, #1abc9c);
+  color: white;
 }
 
-/* responsive */
+/* HOVER EFFECT */
+.admin-navbar-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ACTIVE CLICK EFFECT */
+.admin-navbar-btn:active {
+  transform: scale(0.96);
+}
+
+/* RESPONSIVE */
 @media (max-width: 600px) {
   .admin-navbar {
     flex-direction: column;
     height: auto;
+    padding: 12px;
     gap: 10px;
-    padding: 10px;
+    margin-top: 132px;
   }
 
   .admin-navbar-right {
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap;
   }
+
+  .admin-navbar-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+
+
+
+.admin-navbar-btn {
+  padding: 9px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* OFFER */
+.offer-btn {
+  background: linear-gradient(135deg, #ff9f43, #ff6b00);
+  color: white;
+}
+
+/* ORDER */
+.order-btn {
+  background: linear-gradient(135deg, #1e90ff, #0066ff);
+  color: white;
+}
+
+/* CONTACT */
+.contact-btn {
+  background: linear-gradient(135deg, #2ed573, #1abc9c);
+  color: white;
+}
+
+/* ========================= */
+/* 🔥 ACTIVE TAB GLOW EFFECT */
+/* ========================= */
+.admin-navbar-btn.active {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6),
+              0 0 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #fff;
+  filter: brightness(1.1);
+}
+
+/* smooth hover */
+.admin-navbar-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* active + hover combo */
+.admin-navbar-btn.active:hover {
+  transform: scale(1.1);
 }
