@@ -169,3 +169,18 @@ export const createContact = (data) =>
 
 export const getContacts = () =>
   API.get("/contact");
+
+
+
+
+
+
+
+//================Admin ================
+export const adminLogin = (data) =>
+  API.post("/admin/login", data);
+
+export const verifyAdmin = (token) =>
+  API.get("/admin/verify", {
+    headers: { Authorization: token },
+  });
