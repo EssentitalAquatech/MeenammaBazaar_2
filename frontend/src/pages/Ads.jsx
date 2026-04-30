@@ -9,7 +9,7 @@ const Ads = () => {
   const items = [
     { img: oneImg, lines: ["Safe & Secure", "Payment"] },
     { img: twoImg, lines: ["Expert Advice"] },
-    { img: threeImg, lines: ["Best Price", "Assured"] },
+    { img: threeImg, lines: ["Best Price", "Guaranteed"] },
   ];
 
   return (
@@ -33,3 +33,17 @@ const Ads = () => {
 };
 
 export default Ads;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

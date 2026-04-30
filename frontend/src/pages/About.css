@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 .about-container {
   background: #ffffff;
   margin-top: 150px;
@@ -135,4 +137,68 @@
   .about-card-icon {
     font-size: 40px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about-container {
+  background: #ffffff;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Title */
+.about-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sub text */
+.about-sub-title {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  color: #444;
+  line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* CARD TEXT */
+.about-custom-card h5 {
+  color: #000;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+.about-custom-card p {
+  color: #000;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* CTA BOX */
+.about-cta-box {
+  background: linear-gradient(180deg, hsl(195, 100%, 66%) 0%, hsl(205, 83%, 47%) 100%);
+  color: black;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
 }
