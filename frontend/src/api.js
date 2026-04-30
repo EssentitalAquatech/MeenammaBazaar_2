@@ -1,6 +1,7 @@
 
 
 
+
 // import axios from "axios";
 
 // const API = axios.create({
@@ -20,15 +21,13 @@
 //     headers: { Authorization: token },
 //   });
 
-// // ================= OFFERS (FIXED) =================
-// export const getOffers = () => API.get("/offers");  // ✅ correct
+// // ================= OFFERS =================
+// export const getOffers = () => API.get("/offers");
+
 // export const createOffer = (data) => API.post("/offers", data);
+
 // export const deleteOffer = (product) =>
 //   API.delete(`/offers/${product}`);
-
-
-
-
 
 // // ================= ORDERS =================
 
@@ -41,16 +40,35 @@
 // export const updateOrderStatus = (id, status) =>
 //   API.put(`/orders/status/${id}`, { status });
 
-
-
-
-
-
-
-
 // export const getMyOrders = (phone) =>
 //   API.get(`/orders/my/${phone}`);
 
+// // ================= BLOG =================
+
+// // Get all blogs
+// export const getBlogs = () =>
+//   API.get("/blogs");
+
+// // Create new blog
+// export const createBlog = (formData) =>
+//   API.post("/blogs", formData, {
+//     headers: {
+//       "Content-Type": "multipart/form-data",
+//     },
+//   });
+
+
+
+
+
+//   //===================contact===========
+//   export const createContact = (data) =>
+//   API.post("/contact", data);
+
+
+
+//   export const getContacts = () =>
+//   API.get("/contact");
 
 
 
@@ -62,9 +80,9 @@
 
 
 
-
-
-
+// ===============================
+// src/api.js
+// ===============================
 
 import axios from "axios";
 
@@ -73,7 +91,8 @@ const API = axios.create({
 });
 
 // USERS
-export const loginUser = (data) => API.post("/users/login", data);
+export const loginUser = (data) =>
+  API.post("/users/login", data);
 
 export const getMe = (token) =>
   API.get("/users/me", {
@@ -85,13 +104,18 @@ export const updateMe = (token, data) =>
     headers: { Authorization: token },
   });
 
-// ================= OFFERS =================
-export const getOffers = () => API.get("/offers");
 
-export const createOffer = (data) => API.post("/offers", data);
+// ================= OFFERS =================
+
+export const getOffers = () =>
+  API.get("/offers");
+
+export const createOffer = (data) =>
+  API.post("/offers", data);
 
 export const deleteOffer = (product) =>
   API.delete(`/offers/${product}`);
+
 
 // ================= ORDERS =================
 
@@ -101,11 +125,17 @@ export const placeOrder = (data) =>
 export const getAllOrders = () =>
   API.get("/orders/all");
 
-export const updateOrderStatus = (id, status) =>
-  API.put(`/orders/status/${id}`, { status });
+export const updateOrderStatus = (
+  id,
+  status
+) =>
+  API.put(`/orders/status/${id}`, {
+    status,
+  });
 
 export const getMyOrders = (phone) =>
   API.get(`/orders/my/${phone}`);
+
 
 // ================= BLOG =================
 
@@ -113,23 +143,29 @@ export const getMyOrders = (phone) =>
 export const getBlogs = () =>
   API.get("/blogs");
 
-// Create new blog
+// Create blog
 export const createBlog = (formData) =>
   API.post("/blogs", formData, {
     headers: {
-      "Content-Type": "multipart/form-data",
+      "Content-Type":
+        "multipart/form-data",
     },
   });
 
+// Like / Unlike blog
+export const likeBlog = (
+  blogId,
+  userId
+) =>
+  API.put(`/blogs/${blogId}/like`, {
+    userId,
+  });
 
 
+// ================= CONTACT =================
 
-
-  //===================contact===========
-  export const createContact = (data) =>
+export const createContact = (data) =>
   API.post("/contact", data);
 
-
-
-  export const getContacts = () =>
+export const getContacts = () =>
   API.get("/contact");

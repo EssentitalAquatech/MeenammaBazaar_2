@@ -78,7 +78,7 @@ const isInCart = (item) => {
 
         {/* TITLE */}
         <h2 className="main-title mt-4">
-          Our <span>Feed</span>
+          Fish <span>Feed</span>
         </h2>
 
         {/* DESCRIPTION */}
