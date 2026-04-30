@@ -101,8 +101,9 @@ const AppPromo = () => {
 
           <div className="col-md-4 text-white">
             <h3 className="about-title">
-              About <span className="text-warning">Minima</span>
+              About <span className="text-warning">Meenamma</span>
             </h3>
+            
           </div>
 
           <div className="col-md-8 video-player">
