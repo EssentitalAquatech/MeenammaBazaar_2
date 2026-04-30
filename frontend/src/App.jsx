@@ -1,5 +1,6 @@
 import React from "react";
 import "./i18n";
+import "./App.css"
 
 import { Routes, Route } from "react-router-dom";
 import { CartProvider } from "./components/CartContext";

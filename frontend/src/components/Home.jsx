@@ -8,6 +8,7 @@ import TradingFooter from '../pages/TradingFooter';
 import DealsOfTheDay from '../pages/DealsOfTheDay';
 import Trending from '../pages/Trending';
 import AppPromo from '../pages/AppPromo';
+import Ads from '../pages/Ads';
 
 
 
@@ -20,6 +21,7 @@ function Home() {
        <DealsOfTheDay/>
           <TradingFooter/>
           <Trending/>
+          <Ads/>
           <AppPromo/>
       <About/>
    

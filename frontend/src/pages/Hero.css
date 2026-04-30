@@ -97,7 +97,7 @@
 /* Small Mobile */
 @media (max-width: 480px) {
   .hero-section {
-    margin-top: 88px;
+    margin-top: 98px;
     min-height: calc(34vh - 88px);
   }
 }
