@@ -1,48 +1,120 @@
-.adminOrdersPage {
-  padding: 30px;
-  background: #f8f9fa;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* PAGE */
+.orders-page {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f4f7ff, #eef2ff);
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  margin-top: 197px;
 }
 
-.adminOrdersPage h1 {
+/* TITLE */
+.orders-title {
   text-align: center;
+  font-size: 28px;
+  font-weight: 800;
   margin-bottom: 30px;
+  color: #111827;
+  padding-top: 50px;
 }
 
-.ordersGrid {
+/* GRID */
+.orders-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 20px;
 }
 
-.orderCard {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+/* CARD */
+.order-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
+  border: 1px solid #e5e7eb;
 }
 
-.itemBox {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+.order-card:hover {
+  transform: translateY(-5px);
 }
 
-.pendingBtn,
-.doneBtn {
+/* CUSTOMER */
+.customer-box h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.customer-box p {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 2px 0;
+}
+
+/* DIVIDER */
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 12px 0;
+}
+
+/* ITEMS */
+.items-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #374151;
+}
+
+.price {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* TOTAL */
+.total-box {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 10px;
+}
+
+/* STATUS */
+.status-select {
   width: 100%;
+  margin-top: 12px;
   padding: 10px;
-  border: none;
-  margin-top: 15px;
-  border-radius: 8px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  font-weight: 600;
+  outline: none;
   cursor: pointer;
-  color: white;
-  font-weight: bold;
+  transition: 0.3s;
 }
 
-.pendingBtn {
-  background: orange;
+.status-select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
 }
 
-.doneBtn {
-  background: green;
+/* MOBILE */
+@media (max-width: 600px) {
+  .orders-title {
+    font-size: 22px;
+  }
+
+  .order-card {
+    padding: 15px;
+  }
 }

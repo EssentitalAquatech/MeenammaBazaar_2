@@ -1,3 +1,6 @@
+
+
+
 // import React, { useEffect, useState } from "react";
 // import {
 //   getAllOrders,
@@ -8,115 +11,73 @@
 // function Order() {
 //   const [orders, setOrders] = useState([]);
 
+//   const statuses = [
+//     "Order Received",
+//     "Factory Se Nikal Gaya",
+//     "On The Way",
+//     "Out For Delivery Today",
+//     "Delivered",
+//   ];
+
 //   const loadOrders = async () => {
-//     try {
-//       const res = await getAllOrders();
-//       setOrders(res.data);
-//     } catch (error) {
-//       console.log(error);
-//     }
+//     const res = await getAllOrders();
+//     setOrders(res.data);
 //   };
 
 //   useEffect(() => {
 //     loadOrders();
 //   }, []);
 
-//   const changeStatus = async (id, current) => {
-//     const next =
-//       current === "Pending"
-//         ? "Delivered"
-//         : "Pending";
-
-//     await updateOrderStatus(id, next);
+//   const changeStatus = async (id, value) => {
+//     await updateOrderStatus(id, value);
 //     loadOrders();
 //   };
 
 //   return (
 //     <div className="adminOrdersPage">
-
 //       <h1>All Orders</h1>
 
-//       {orders.length === 0 ? (
-//         <p>No Orders Yet</p>
-//       ) : (
-//         <div className="ordersGrid">
+//       <div className="ordersGrid">
+//         {orders.map((order) => (
+//           <div key={order._id} className="orderCard">
 
-//           {orders.map((order) => (
-//             <div
-//               key={order._id}
-//               className="orderCard"
-//             >
+//             <h3>{order.customer.name}</h3>
+//             <p>{order.customer.phone}</p>
+//             <p>{order.customer.address}</p>
 
-//               <h3>
-//                 {order.customer.name}
-//               </h3>
+//             <hr />
 
-//               <p>
-//                 📞 {order.customer.phone}
-//               </p>
+//             {order.items.map((item, i) => (
+//               <div key={i}>
+//                 <p>{item.name}</p>
+//                 <p>{item.size}</p>
+//                 <p>₹{item.price}</p>
+//               </div>
+//             ))}
 
-//               <p>
-//                 📍 {order.customer.address}
-//               </p>
+//             <hr />
 
-//               <hr />
+//             <p>Total ₹{order.total}</p>
 
-//               <h4>Items:</h4>
-
-//               {order.items.map(
-//                 (item, index) => (
-//                   <div
-//                     key={index}
-//                     className="itemBox"
-//                   >
-//                     <p>
-//                       {item.name}
-//                     </p>
-
-//                     <p>
-//                       {item.size}
-//                     </p>
-
-//                     <p>
-//                       ₹{item.price}
-//                     </p>
-//                   </div>
+//             <select
+//               value={order.status}
+//               onChange={(e) =>
+//                 changeStatus(
+//                   order._id,
+//                   e.target.value
 //                 )
-//               )}
+//               }
+//             >
+//               {statuses.map((s, i) => (
+//                 <option key={i}>
+//                   {s}
+//                 </option>
+//               ))}
+//             </select>
 
-//               <hr />
-
-//               <p>
-//                 💰 Total:
-//                 ₹{order.total}
-//               </p>
-
-//               <p>
-//                 📅 {order.date}
-//               </p>
-
-//               <button
-//                 className={
-//                   order.status ===
-//                   "Pending"
-//                     ? "pendingBtn"
-//                     : "doneBtn"
-//                 }
-//                 onClick={() =>
-//                   changeStatus(
-//                     order._id,
-//                     order.status
-//                   )
-//                 }
-//               >
-//                 {order.status}
-//               </button>
-
-//             </div>
-//           ))}
-
-//         </div>
-//       )}
+//           </div>
+//         ))}
+//       </div>
 //     </div>
 //   );
 // }
@@ -133,22 +94,19 @@
 
 
 import React, { useEffect, useState } from "react";
-import {
-  getAllOrders,
-  updateOrderStatus,
-} from "../api";
+import { getAllOrders, updateOrderStatus } from "../api";
 import "./Order.css";
 
 function Order() {
   const [orders, setOrders] = useState([]);
 
-  const statuses = [
-    "Order Received",
-    "Factory Se Nikal Gaya",
-    "On The Way",
-    "Out For Delivery Today",
-    "Delivered",
-  ];
+const statuses = [
+  "Order Placed",
+  "Processing at Warehouse",
+  "Shipped from Warehouse",
+  "Out for Delivery",
+  "Delivered Successfully",
+];
 
   const loadOrders = async () => {
     const res = await getAllOrders();
@@ -165,50 +123,59 @@ function Order() {
   };
 
   return (
-    <div className="adminOrdersPage">
-      <h1>All Orders</h1>
+    <div className="orders-page">
 
-      <div className="ordersGrid">
+      <h1 className="orders-title">📦 All Orders Dashboard</h1>
+
+      <div className="orders-grid">
+
         {orders.map((order) => (
-          <div key={order._id} className="orderCard">
+          <div key={order._id} className="order-card">
 
-            <h3>{order.customer.name}</h3>
-            <p>{order.customer.phone}</p>
-            <p>{order.customer.address}</p>
+            {/* CUSTOMER */}
+            <div className="customer-box">
+              <h3>{order.customer.name}</h3>
+              <p>📞 {order.customer.phone}</p>
+              <p>📍 {order.customer.address}</p>
+            </div>
 
-            <hr />
+            <div className="divider"></div>
 
-            {order.items.map((item, i) => (
-              <div key={i}>
-                <p>{item.name}</p>
-                <p>{item.size}</p>
-                <p>₹{item.price}</p>
-              </div>
-            ))}
+            {/* ITEMS */}
+            <div className="items-box">
+              {order.items.map((item, i) => (
+                <div key={i} className="item-row">
+                  <span>{item.name}</span>
+                  <span>{item.size}</span>
+                  <span className="price">₹{item.price}</span>
+                </div>
+              ))}
+            </div>
 
-            <hr />
+            <div className="divider"></div>
 
-            <p>Total ₹{order.total}</p>
+            {/* TOTAL */}
+            <div className="total-box">
+              <strong>Total:</strong>
+              <span>₹{order.total}</span>
+            </div>
 
+            {/* STATUS */}
             <select
+              className="status-select"
               value={order.status}
-              onChange={(e) =>
-                changeStatus(
-                  order._id,
-                  e.target.value
-                )
-              }
+              onChange={(e) => changeStatus(order._id, e.target.value)}
             >
               {statuses.map((s, i) => (
-                <option key={i}>
-                  {s}
-                </option>
+                <option key={i}>{s}</option>
               ))}
             </select>
 
           </div>
         ))}
+
       </div>
+
     </div>
   );
 }
