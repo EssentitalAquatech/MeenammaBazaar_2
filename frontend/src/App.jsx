@@ -32,6 +32,7 @@ import Login from "./pages/Login";
 import AdminMain from "./admin/AdminMain";
 import BlogPage from "./pages/BlogPage";
 import ContactUs from "./pages/ContactUs";
+import ScrollToTop from "./ScrollToTop";
 
 
 
@@ -41,6 +42,7 @@ function App() {
   return (
 
      <CartProvider>
+      <ScrollToTop/>
 
     <div className="App">
      <AnnouncementBar/>
