@@ -60,3 +60,178 @@
   50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* VIDEO */
+.promo-video {
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  background: white;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+/* WRAPPER */
+.video-player {
+  position: relative;
+}
+
+/* PROGRESS BAR ONLY */
+.progress-bar {
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+  width: 90%;
+  height: 5px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: #ffc107;
+  border-radius: 5px;
+}
+
+/* HEADING */
+.about-title {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size:50px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .promo-video {
+    height: 220px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  /* MAIN WRAPPER - mobile padding fix */
+  .app-promo-wrapper {
+    padding: 20px !important;
+    border-radius: 18px;
+  }
+
+  /* IMAGE CENTER FIX */
+  .app-image {
+    max-width: 220px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* STACK LEFT + RIGHT CONTENT */
+  .app-promo-wrapper .col-md-6 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* ABOUT + VIDEO STACK VERTICALLY */
+  .app-promo-wrapper .row.align-items-center {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* ABOUT HEADING */
+  .about-title {
+    font-size: 28px !important;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  /* VIDEO FULL WIDTH */
+  .video-player {
+    width: 100%;
+  }
+
+  .promo-video {
+    height: 220px;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  /* PROGRESS BAR ADJUST */
+  .progress-bar {
+    left: 5%;
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+  /* WhatsApp Button Wrapper Fix */
+  .wa-btn-wrapper {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  /* anchor default underline + blue color remove */
+  .wa-btn-wrapper a {
+    text-decoration: none !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* button full clean look */
+  .wa-btn-wrapper button {
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+    text-decoration: none !important;
+    border: none;
+  }
+
+  /* remove any focus underline/blue outline effect */
+  .wa-btn-wrapper a:focus,
+  .wa-btn-wrapper a:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
