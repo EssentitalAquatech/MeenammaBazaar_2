@@ -139,16 +139,55 @@ gap: 6px;
 }
 
 /* SHARE */
+/* ===============================
+SHARE BUTTON (UPDATED PREMIUM)
+=============================== */
+
 .blog-share-btn {
-width: 42px;
-height: 42px;
+width: 44px;
+height: 44px;
 border-radius: 50%;
-background: linear-gradient(135deg,#2563eb,#1d4ed8);
+
+/* 🔥 New Gradient (modern look) */
+background: linear-gradient(135deg, #22c55e, #16a34a);
+
 color: white;
+border: none;
+
 display: flex;
 justify-content: center;
 align-items: center;
+
+font-size: 18px;
+cursor: pointer;
+
+/* ✨ Smooth animation */
+transition: all 0.25s ease;
+
+/* 💎 Soft shadow */
+box-shadow: 0 6px 15px rgba(34, 197, 94, 0.35);
 }
+
+/* ICON */
+.blog-share-btn i {
+pointer-events: none;
+}
+
+/* 🔥 HOVER EFFECT */
+.blog-share-btn:hover {
+transform: translateY(-3px) scale(1.08);
+
+background: linear-gradient(135deg, #16a34a, #15803d);
+
+box-shadow: 0 10px 20px rgba(34, 197, 94, 0.5);
+}
+
+/* 🔥 CLICK EFFECT */
+.blog-share-btn:active {
+transform: scale(0.95);
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
 
 /* COMMENT */
 .blog-comment-btn {

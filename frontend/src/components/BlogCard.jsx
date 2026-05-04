@@ -309,12 +309,12 @@ const BlogCard = ({ blog, refreshBlogs }) => {
         </button>
 
         {/* SHARE */}
-        <button
-          className="blog-share-btn"
-          onClick={handleShare}
-        >
-          🔗
-        </button>
+     <button
+  className="blog-share-btn"
+  onClick={handleShare}
+>
+  <i className="fa-solid fa-share-nodes"></i>
+</button>
 
         {/* COMMENT BUTTON */}
         <button

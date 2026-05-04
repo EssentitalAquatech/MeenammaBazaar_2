@@ -115,6 +115,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   font-size:50px;
+  color: white;
 }
 
 /* MOBILE */
@@ -170,6 +171,7 @@
     font-size: 28px !important;
     margin-bottom: 15px;
     text-align: center;
+  
   }
 
   /* VIDEO FULL WIDTH */
