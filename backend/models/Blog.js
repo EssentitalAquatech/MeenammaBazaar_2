@@ -1,3 +1,10 @@
+
+
+
+// // ===============================
+// // models/Blog.js
+// // ===============================
+
 // import mongoose from "mongoose";
 
 // const blogSchema = new mongoose.Schema(
@@ -6,13 +13,25 @@
 //       type: String,
 //       required: true,
 //     },
+
 //     text: {
 //       type: String,
 //       required: true,
 //     },
+
 //     image: {
 //       type: String,
 //       default: "",
+//     },
+
+//     likes: {
+//       type: Number,
+//       default: 0,
+//     },
+
+//     likedUsers: {
+//       type: [String],
+//       default: [],
 //     },
 //   },
 //   { timestamps: true }
@@ -28,8 +47,13 @@
 
 
 
+
+
+
+
+
 // ===============================
-// models/Blog.js
+// models/Blog.js (UPDATED)
 // ===============================
 
 import mongoose from "mongoose";
@@ -37,6 +61,11 @@ import mongoose from "mongoose";
 const blogSchema = new mongoose.Schema(
   {
     name: {
+      type: String,
+      required: true,
+    },
+
+    phone: { // ✅ NEW FIELD
       type: String,
       required: true,
     },
