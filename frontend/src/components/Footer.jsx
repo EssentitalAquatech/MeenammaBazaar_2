@@ -139,7 +139,7 @@ const socials = [
   { icon: <FaYoutube />, url: "https://www.youtube.com/@essentialaquatech", label: "YouTube" },
   { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/company/essential-aquatech-private-limited/", label: "LinkedIn" },
   { icon: <FaInstagram />, url: "https://www.instagram.com/essentialaquatech?igsh=MW8wdDFtcXo3ODlmMQ==", label: "Instagram" },
-  { icon: <FaXTwitter />, url: "https://x.com", label: "X" },
+  { icon: <FaXTwitter />, url: "https://x.com/EssentialAqua1", label: "X" },
 ];
 
 function Footer() {
