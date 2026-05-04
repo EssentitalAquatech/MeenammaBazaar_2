@@ -184,3 +184,17 @@ export const verifyAdmin = (token) =>
   API.get("/admin/verify", {
     headers: { Authorization: token },
   });
+
+
+
+
+
+
+
+
+
+  // Add Comment
+export const addComment = (blogId, data, token) =>
+  API.post(`/blogs/${blogId}/comment`, data, {
+    headers: { Authorization: token },
+  });
