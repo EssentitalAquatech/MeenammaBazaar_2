@@ -295,7 +295,7 @@ const BlogPage = () => {
       {/* HEADER */}
       <div className="blog-fixed-header">
         <h1 className="blog-page-title">
-          Welcome to <span>Meenamma Community Blogs</span>
+          Welcome to <span>Meenamma Community Post</span>
         </h1>
 
         <button
