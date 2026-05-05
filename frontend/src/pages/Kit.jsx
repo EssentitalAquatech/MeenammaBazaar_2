@@ -38,8 +38,8 @@ const getPath = (item, index) => {
   if (index === 2) return "/growth_kit";
   if (index === 3) return "/disease_kit_1";
   if (index === 4) return "/disease_kit_2";
-  if (index === 5) return "/growth";
-  if (index === 6) return "/probiotics";
+  if (index === 5) return "/emergency_kit";
+  if (index === 6) return "/water_kit";
 
   return `/category/${slugify(item)}`;
 };

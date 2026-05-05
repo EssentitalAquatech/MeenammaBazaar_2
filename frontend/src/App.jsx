@@ -160,6 +160,8 @@ import Plakton_Kit from "./pages/Plakton_Kit";
 import Growth_Kit from "./pages/Growth_Kit";
 import Disease_Kit_1 from "./pages/Disease_Kit_1";
 import Disease_Kit_2 from "./pages/Disease_Kit_2";
+import Emergency_Kit from "./pages/Emergency_Kit";
+import Water_Kit from "./pages/Water_Kit";
 
 function App() {
   return (
@@ -203,6 +205,8 @@ function App() {
    <Route path="/growth_kit" element={<Growth_Kit/>} />
     <Route path="/disease_kit_1" element={<Disease_Kit_1/>} />
      <Route path="/disease_kit_2" element={<Disease_Kit_2/>} />
+      <Route path="/emergency_kit" element={<Emergency_Kit/>} />
+       <Route path="/water_kit" element={<Water_Kit/>} />
 
 </Routes>
 
