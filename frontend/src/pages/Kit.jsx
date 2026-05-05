@@ -33,7 +33,7 @@ const slugify = (text) =>
   text.toLowerCase().replace(/\s+/g, "-");
 
 const getPath = (item, index) => {
-  if (index === 0) return "/pond-probiotics";
+  if (index === 0) return "/complete_kit";
   if (index === 1) return "/diseaseTreatment";
   if (index === 2) return "/water-testing";
   if (index === 3) return "/oxygen";

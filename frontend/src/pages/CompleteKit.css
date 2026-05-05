@@ -1,0 +1,235 @@
+.kitWrapper {
+  padding: 220px 6% 60px;
+  background: #f9fafb;
+  font-family: "Poppins", sans-serif;
+}
+
+.kitContainer {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* LEFT */
+.kitLeft {
+  flex: 1;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider img {
+  width: 100%;
+  height: 420px;
+  object-fit: contain; /* ✅ image full show hogi */
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+/* THUMBNAILS */
+.thumbContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.thumbContainer img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.6;
+  background: #fff;
+  padding: 5px;
+}
+
+.thumbContainer img.activeThumb {
+  border: 2px solid #2563eb;
+  opacity: 1;
+}
+
+/* RIGHT */
+.kitRight {
+  flex: 1;
+}
+
+/* ✅ MAIN HEADING */
+.title {
+  font-size: 40px; /* bigger */
+  font-weight: 800;
+  color: #000; /* black */
+}
+
+/* ✅ SUBTEXT */
+.subText {
+  margin: 12px 0 22px;
+  color: #555;
+  font-size: 18px; /* bigger */
+}
+
+/* ✅ PRICE */
+.priceBox {
+  font-size: 32px; /* bigger */
+  font-weight: bold;
+  color: #16a34a;
+}
+
+.priceBox small {
+  display: block;
+  font-size: 16px; /* bigger */
+  color: #777;
+  margin-top: 5px;
+}
+
+/* ✅ ADD BUTTON */
+.addBtn {
+  margin-top: 25px;
+  padding: 15px;
+  width: 100%;
+  background: #facc15; /* yellow */
+  color: #000; /* black text */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  transition: all 0.3s ease; /* smooth */
+}
+
+.addBtn:hover {
+  transform: scale(1.05);
+  background: #eab308;
+}
+
+/* INCLUDES */
+.includesBox {
+  margin-top: 30px;
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+}
+
+.includesBox h3 {
+  font-size: 22px; /* bigger */
+}
+
+.includesBox ul {
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+.includesBox li {
+  font-size: 16px; /* bigger */
+  margin-bottom: 6px;
+}
+
+/* DESCRIPTION */
+.kitDescription {
+  margin-top: 70px;
+}
+
+.kitDescription h2 {
+  text-align: center; /* center */
+  font-size: 32px; /* bigger */
+  margin-bottom: 40px;
+}
+
+.descGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.descCard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.descCard:hover {
+  transform: translateY(-6px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .title {
+    font-size: 34px;
+  }
+
+  .priceBox {
+    font-size: 28px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .kitContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .slider img {
+    height: 280px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subText {
+    font-size: 16px;
+  }
+
+  .priceBox {
+    font-size: 24px;
+  }
+
+  .kitDescription h2 {
+    font-size: 26px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .slider img {
+    height: 220px;
+  }
+
+  .thumbContainer img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .addBtn {
+    font-size: 15px;
+    padding: 12px;
+  }
+}

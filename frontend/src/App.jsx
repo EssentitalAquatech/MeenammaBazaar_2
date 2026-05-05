@@ -155,6 +155,7 @@ import AdminMain from "./admin/AdminMain";
 import AdminLogin from "./admin/AdminLogin";
 import AdminProtectedRoute from "./admin/AdminProtectedRoute";
 import Kit from "./pages/Kit";
+import Complete_Kit from "./pages/Complete_Kit";
 
 function App() {
   return (
@@ -189,6 +190,12 @@ function App() {
   <Route path="/contact" element={<ContactUs />} />
   <Route path="/admin-login" element={<AdminLogin/>} />
   <Route path="/adminMain" element={<AdminProtectedRoute><AdminMain /></AdminProtectedRoute>} />
+
+
+
+
+ <Route path="/complete_kit" element={<Complete_Kit/>} />
+
 </Routes>
 
         <Footer />
