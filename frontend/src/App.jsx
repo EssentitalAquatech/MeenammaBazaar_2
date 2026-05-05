@@ -154,6 +154,7 @@ import ScrollToTop from "./ScrollToTop";
 import AdminMain from "./admin/AdminMain";
 import AdminLogin from "./admin/AdminLogin";
 import AdminProtectedRoute from "./admin/AdminProtectedRoute";
+import Kit from "./pages/Kit";
 
 function App() {
   return (
@@ -173,6 +174,7 @@ function App() {
   <Route path="/medicines" element={<Medicines />} />
   <Route path="/water-testing" element={<WaterTesting />} />
   <Route path="/pond-probiotics" element={<PondProbiotics />} />
+<Route path="/kit" element={<Kit />} />
   <Route path="/diseaseTreatment" element={<DiseaseTreatment />} />
   <Route path="/oxygen" element={<Oxygen />} />
   <Route path="/pondPreparation" element={<PondPreparation />} />

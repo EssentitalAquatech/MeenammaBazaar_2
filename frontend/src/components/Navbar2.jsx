@@ -14,6 +14,7 @@ const menuItems = [
   { key: "nav.fish_feed", path: "/fish-feed" },
   { key: "nav.water_testing", path: "/water-testing" },
   { key: "nav.medicines", path: "/medicines" },
+  { key: "nav.kit", path: "/kit" },
   { key: "nav.meenamma_community", path: "/blogs" },
 
   // ✅ NEW CONTACT BUTTON
