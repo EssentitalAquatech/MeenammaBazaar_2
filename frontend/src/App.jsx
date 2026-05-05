@@ -156,6 +156,10 @@ import AdminLogin from "./admin/AdminLogin";
 import AdminProtectedRoute from "./admin/AdminProtectedRoute";
 import Kit from "./pages/Kit";
 import Complete_Kit from "./pages/Complete_Kit";
+import Plakton_Kit from "./pages/Plakton_Kit";
+import Growth_Kit from "./pages/Growth_Kit";
+import Disease_Kit_1 from "./pages/Disease_Kit_1";
+import Disease_Kit_2 from "./pages/Disease_Kit_2";
 
 function App() {
   return (
@@ -195,6 +199,10 @@ function App() {
 
 
  <Route path="/complete_kit" element={<Complete_Kit/>} />
+  <Route path="/plakton_kit" element={<Plakton_Kit/>} />
+   <Route path="/growth_kit" element={<Growth_Kit/>} />
+    <Route path="/disease_kit_1" element={<Disease_Kit_1/>} />
+     <Route path="/disease_kit_2" element={<Disease_Kit_2/>} />
 
 </Routes>
 

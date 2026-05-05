@@ -34,10 +34,10 @@ const slugify = (text) =>
 
 const getPath = (item, index) => {
   if (index === 0) return "/complete_kit";
-  if (index === 1) return "/diseaseTreatment";
-  if (index === 2) return "/water-testing";
-  if (index === 3) return "/oxygen";
-  if (index === 4) return "/pondPreparation";
+  if (index === 1) return "/plakton_kit";
+  if (index === 2) return "/growth_kit";
+  if (index === 3) return "/disease_kit_1";
+  if (index === 4) return "/disease_kit_2";
   if (index === 5) return "/growth";
   if (index === 6) return "/probiotics";
 
