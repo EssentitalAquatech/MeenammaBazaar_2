@@ -18,8 +18,6 @@ const categoryData = [
   "Disease Control Kit_1",
   "Disease Control Kit_2",
   "Emergency Rescue Kit",
- 
-
   "Water Improvement Kit",
   
 ];
