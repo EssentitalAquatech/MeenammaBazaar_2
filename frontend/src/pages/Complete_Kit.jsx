@@ -212,7 +212,7 @@ import { useCart } from "../components/CartContext";
 import img1 from "../assets/images/eazy-chun-1.jpg";
 import img2 from "../assets/images/liv-active-1.jpg";
 import img3 from "../assets/images/ZEA-POND-1.jpg";
-import img4 from "../assets/images/ea-pro-b-2.png";
+import img4 from "../assets/images/ea-pro-1.png";
 import img5 from "../assets/images/YEASTEA-1.jpg";
 import img6 from "../assets/images/AQUEAMINA-1.jpg";
 
