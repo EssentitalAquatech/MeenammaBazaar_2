@@ -162,6 +162,8 @@ import Disease_Kit_1 from "./pages/Disease_Kit_1";
 import Disease_Kit_2 from "./pages/Disease_Kit_2";
 import Emergency_Kit from "./pages/Emergency_Kit";
 import Water_Kit from "./pages/Water_Kit";
+import Privacy from "./pages/Privacy";
+import Refund from "./pages/Refund";
 
 function App() {
   return (
@@ -207,6 +209,10 @@ function App() {
      <Route path="/disease_kit_2" element={<Disease_Kit_2/>} />
       <Route path="/emergency_kit" element={<Emergency_Kit/>} />
        <Route path="/water_kit" element={<Water_Kit/>} />
+
+
+       <Route path="/privacy" element={<Privacy/>} />
+       <Route path="/refund" element={<Refund/>} />
 
 </Routes>
 

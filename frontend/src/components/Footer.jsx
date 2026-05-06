@@ -90,8 +90,8 @@ function Footer() {
           <div className="col-6 col-md-3 col-lg-2">
             <h6 className="ea-heading">{t("footer1.legal")}</h6>
             <ul className="ea-links">
-              <li><Link to="/privacy-policy">{t("footer1.privacy")}</Link></li>
-              <li><Link to="/return-policy">{t("footer1.return")}</Link></li>
+              <li><Link to="/privacy">{t("footer1.privacy")}</Link></li>
+              <li><Link to="/refund">{t("footer1.return")}</Link></li>
               <li><Link to="/adminMain">{t("footer1.admin")}</Link></li>
             </ul>
           </div>
