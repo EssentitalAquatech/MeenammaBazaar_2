@@ -111,7 +111,7 @@
   margin-top: 25px;
   padding: 15px;
   width: 100%;
-  background: #facc15; /* yellow */
+  background: #ffe312; /* yellow */
   color: #000; /* black text */
   border: none;
   border-radius: 10px;
@@ -123,7 +123,7 @@
 
 .addBtn:hover {
   transform: scale(1.05);
-  background: #eab308;
+  background: #eed510;
 }
 
 /* INCLUDES */
@@ -153,10 +153,26 @@
   margin-top: 70px;
 }
 
-.kitDescription h2 {
-  text-align: center; /* center */
-  font-size: 32px; /* bigger */
+/* .kitDescription h2 {
+  text-align: center; 
+  font-size: 32px; 
   margin-bottom: 40px;
+} */
+
+.kitDescription h2 {
+  text-align: center;
+  font-size: 40px; /* size bada */
+  margin-bottom: 40px;
+  display: inline-block; /* important for background fit */
+
+  background-color: #ffe312;
+  padding: 5px 15px; /* height + width control */
+  border-radius: 6px; /* optional smooth look */
+  
+}
+
+.kitDescription {
+  text-align: center;
 }
 
 .descGrid {
